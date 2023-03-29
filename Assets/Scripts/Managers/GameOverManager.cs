@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
@@ -32,3 +32,4 @@ public class GameOverManager : MonoBehaviour
         }
     }
 }
+
