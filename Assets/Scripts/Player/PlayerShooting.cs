@@ -75,7 +75,6 @@ public class PlayerShooting : MonoBehaviour
         //enable Line renderer dan set first position
         gunLine.enabled = true;
         gunLine.SetPosition(0, transform.position);
-        print("AWAL : " + gunLine.GetPosition(0));
 
         //Set posisi ray shoot dan direction
         shootRay.origin = transform.position;
@@ -98,15 +97,11 @@ public class PlayerShooting : MonoBehaviour
 
             //Set line end position ke hit position
             gunLine.SetPosition(1, shootHit.point);
-            print("KETEMBAK!");
         }
         else
         {
             //set line end position ke range freom barrel
             gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
-            print("TIDAK KETEMBAK!");
         }
-
-        print("AKHIR : " + gunLine.GetPosition(1));
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SwitchScenes : MonoBehaviour
 {
+    private float timer = 12f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +15,10 @@ public class SwitchScenes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Level_01");
-        }
+        //timer -= Time.deltaTime;
+        //if (timer <= 0) 
+        //{
+        //    UnityEngine.SceneManagement.SceneManager.LoadScene("Level_01");
+        //}
     }
 }
