@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
+using System.Collections;
 
 public class Dialogue : MonoBehaviour
 {
@@ -32,7 +30,14 @@ public class Dialogue : MonoBehaviour
         {
             if (textComponent.text == "(Exit cutscene with LEFT CLICK)")
             {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Level_01");
+                int sceneIdx = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+
+                if (sceneIdx == 0 || sceneIdx == 2)
+                {
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+                }
+
+                //UnityEngine.SceneManagement.SceneManager.LoadScene("Level_01");
             }
             else
             {

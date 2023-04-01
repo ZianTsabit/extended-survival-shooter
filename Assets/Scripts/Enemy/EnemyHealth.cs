@@ -2,6 +2,7 @@
 
 public class EnemyHealth : MonoBehaviour
 {
+    public int enemyType;
     public int startingHealth = 100;
     public int currentHealth;
     public float sinkSpeed = 2.5f;
@@ -90,6 +91,24 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = true;
         isSinking = true;
         ScoreManager.score += scoreValue;
+
+        int sceneIdx = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+
+        if (sceneIdx == 1) // Level_1
+        {
+            if (enemyType == 0) Zombunny_1.enemyKilled++;
+            
+            if (Zombunny_1.enemyKilled == Zombunny_1.targetKill) UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIdx + 1);
+
+        } else if (sceneIdx == 2) // Level_2
+        {
+            if (enemyType == 0) Zombunny_2.enemyKilled++;
+            else if (enemyType == 1) Zombear_2.enemyKilled++;
+
+            if (Zombunny_2.enemyKilled >= Zombunny_2.targetKill && Zombear_2.enemyKilled >= Zombear_2.targetKill) UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIdx + 1);
+
+
+        }
         Destroy(gameObject, 2f);
     }
 }
