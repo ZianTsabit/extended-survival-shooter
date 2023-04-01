@@ -88,7 +88,7 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         isSinking = true;
-        ScoreManager.score += scoreValue;
+        MoneyManager.money += scoreValue;
 
         int sceneIdx = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
 

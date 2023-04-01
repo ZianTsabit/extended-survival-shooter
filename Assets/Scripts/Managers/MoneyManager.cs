@@ -2,9 +2,9 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class ScoreManager : MonoBehaviour
+public class MoneyManager : MonoBehaviour
 {
-    public static int score;
+    public static int money;
 
 
     Text text;
@@ -13,12 +13,11 @@ public class ScoreManager : MonoBehaviour
     void Awake ()
     {
         text = GetComponent <Text> ();
-        score = 0;
     }
 
 
     void Update ()
     {
-        text.text = "Score: " + score;
+        text.text = "Money : " + money;
     }
 }

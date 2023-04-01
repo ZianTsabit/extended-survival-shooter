@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
     AudioSource playerAudio;
     PlayerMovement playerMovement;
     PlayerShooting playerShooting;
-    bool isDead;
+    public static bool isDead;
     bool damaged;
 
     void Awake()
