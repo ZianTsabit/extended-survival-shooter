@@ -31,13 +31,7 @@ public class Dialogue : MonoBehaviour
             if (textComponent.text == "(Exit cutscene with LEFT CLICK)")
             {
                 int sceneIdx = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-
-                if (sceneIdx == 0 || sceneIdx == 2)
-                {
-                    UnityEngine.SceneManagement.SceneManager.LoadScene(1);
-                }
-
-                //UnityEngine.SceneManagement.SceneManager.LoadScene("Level_01");
+                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIdx+1);
             }
             else
             {

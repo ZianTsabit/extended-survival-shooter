@@ -531,7 +531,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 332771704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bba130e85a3dae459df56c6c7110a30, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d111e3aee83da14f937f028c7cae862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &429228027 stripped
@@ -933,7 +933,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 774882575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b2cd2d5c65e0f64b97ba22c92bf7aaa, type: 3}
+  m_Script: {fileID: 11500000, guid: 36449ae237447f64a8a7da3752d45895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1042847073
@@ -1271,7 +1271,7 @@ MonoBehaviour:
   playerHealth: {fileID: 78385523}
   enemy: {fileID: 3749287102852802589, guid: ec34d323c260fb14ea8db125439ad614, type: 3}
   isBoss: 0
-  spawnTime: 3
+  spawnTime: 2
   spawnPoints:
   - {fileID: 433293847}
 --- !u!114 &1488394627

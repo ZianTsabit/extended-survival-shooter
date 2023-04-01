@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Zombunny_2 : MonoBehaviour
 {
     public static int enemyKilled;
-    public static int targetKill = 2;
+    public static int targetKill = 10;
 
     Text text;
     // Start is called before the first frame update

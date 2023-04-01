@@ -15,12 +15,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_2.unity
     guid: 757f48cc29cc8ca49a6e519b71286ef1
   - enabled: 1
+    path: Assets/Scenes/Level_3.unity
+    guid: 93b70de8b72a3ac43b933ee7691f6a2e
+  - enabled: 1
     path: Assets/Scenes/Final Boss.unity
     guid: c95b052e4f2252149a36b9076e25ec3e
   - enabled: 1
+    path: Assets/Scenes/Level_4.unity
+    guid: 5cbeeb3a2a2d3fe4f9fc52f5080fe273
+  - enabled: 1
     path: Assets/Scenes/Closing.unity
     guid: 8b45d888c095043478eae57d397d0f16
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level_01.unity
     guid: 3104b69b242d6304a94e8cf6734cde34
   m_configObjects: {}

@@ -85,9 +85,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void StartSinking()
     {
-        //disable Navmesh Component
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
-        //Set rigisbody ke kinematic
         GetComponent<Rigidbody>().isKinematic = true;
         isSinking = true;
         ScoreManager.score += scoreValue;
@@ -106,9 +104,19 @@ public class EnemyHealth : MonoBehaviour
             else if (enemyType == 1) Zombear_2.enemyKilled++;
 
             if (Zombunny_2.enemyKilled >= Zombunny_2.targetKill && Zombear_2.enemyKilled >= Zombear_2.targetKill) UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIdx + 1);
+        } else if (sceneIdx == 3) // Level_3
+        {
+            if (enemyType == 0) Zombunny_3.enemyKilled++;
+            else if (enemyType == 1) Zombear_3.enemyKilled++;
 
+            if (Zombunny_3.enemyKilled >= Zombunny_3.targetKill && Zombear_3.enemyKilled >= Zombear_3.targetKill) UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIdx + 1);
+        } else if (sceneIdx == 5) // Level_4
+        {
+            if (enemyType == 2) Hellephant_4.enemyKilled++;
 
+            if (Hellephant_4.enemyKilled >= Hellephant_4.targetKill) UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIdx + 1);
         }
+
         Destroy(gameObject, 2f);
     }
 }

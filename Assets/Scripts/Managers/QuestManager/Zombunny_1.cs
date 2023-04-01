@@ -18,5 +18,9 @@ public class Zombunny_1 : MonoBehaviour
     void Update()
     {
         text.text = enemyKilled + " / " + targetKill;
+        if (enemyKilled >= targetKill)
+        {
+            text.color = Color.green;
+        }
     }
 }

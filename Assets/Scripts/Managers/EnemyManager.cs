@@ -4,6 +4,7 @@ public class EnemyManager : MonoBehaviour
 {
     public PlayerHealth playerHealth;
     public GameObject enemy;
+    public bool isBoss;
     public float spawnTime = 3f;
     public Transform[] spawnPoints;
 
@@ -11,7 +12,16 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         //Mengeksekusi fungs Spawn setiap beberapa detik sesui dengan nilai spawnTime
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
+        if (isBoss) // Apabila Hellephant, spawn 3x aja titik. Gausah auto generate
+        {
+            Spawn();
+            Spawn();
+            Spawn();
+        }
+        else
+        {
+            InvokeRepeating("Spawn", spawnTime, spawnTime);
+        }
     }
 
 

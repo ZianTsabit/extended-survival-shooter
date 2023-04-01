@@ -232,9 +232,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4fff99673a41e24439d527ad0bd6b569, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -329,7 +329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.0000002
+      value: 1.0000004
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
       propertyPath: m_LocalScale.y
@@ -337,7 +337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.0000001
       objectReference: {fileID: 0}
     - target: {fileID: 400080, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
       propertyPath: m_RootOrder
@@ -684,6 +684,8 @@ PlayableDirector:
     value: {fileID: 634856743}
   - key: {fileID: 2019809747161116532, guid: b463f5b328aed3644b390bd6533219a6, type: 2}
     value: {fileID: 1226570673}
+  - key: {fileID: 7077358566216140348, guid: b463f5b328aed3644b390bd6533219a6, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &1226570672
@@ -743,15 +745,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: b77f122f451a2394898a24191c26107c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.0000004
+      value: 1.0000001
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: b77f122f451a2394898a24191c26107c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0000004
+      value: 1.0000006
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: b77f122f451a2394898a24191c26107c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0000004
+      value: 1.0000006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b77f122f451a2394898a24191c26107c, type: 3}

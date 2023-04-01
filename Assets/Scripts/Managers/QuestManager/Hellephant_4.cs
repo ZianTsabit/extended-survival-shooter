@@ -1,14 +1,14 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Zombear_2 : MonoBehaviour
+public class Hellephant_4: MonoBehaviour
 {
     public static int enemyKilled;
-    public static int targetKill = 5;
+    public static int targetKill = 3;
 
     Text text;
     // Start is called before the first frame update
-    void Awake ()
+    void Awake()
     {
         text = GetComponent<Text>();
         enemyKilled = 0;
