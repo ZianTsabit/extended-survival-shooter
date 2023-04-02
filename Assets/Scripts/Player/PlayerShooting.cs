@@ -4,9 +4,9 @@ public class PlayerShooting : MonoBehaviour
 {
     // public int damagePerShot = Mathf.Lerp(30, 10, distance / maxDistance);
     public int damagePerShot = 20;
-    public float timeBetweenBullets = 0.50f;
-    public float range = 10f;
-    public int bulletSpread = 2;
+    public float timeBetweenBullets = 0.15f;
+    public float range = 100f;
+    public int bulletSpread = 1;
 
     float timer;
     Ray shootRay;
