@@ -18,8 +18,7 @@ public class PlayerHealth : MonoBehaviour
     Animator anim;
     AudioSource playerAudio;
     PlayerMovement playerMovement;
-    PlayerShootingRifle playerShootingRifle;
-    PlayerShootingShotgun playerShootingShotgun;
+    PlayerShooting playerShooting;
     public static bool isDead;
     bool damaged;
 
@@ -30,8 +29,7 @@ public class PlayerHealth : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();
         playerMovement = GetComponent<PlayerMovement>();
 
-        playerShootingRifle = GetComponentInChildren <PlayerShootingRifle> ();
-        playerShootingShotgun = GetComponentInChildren <PlayerShootingShotgun> ();
+        playerShooting = GetComponentInChildren <PlayerShooting> ();
         currentHealth = startingHealth;
     }
 
@@ -80,8 +78,7 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
 
-        playerShootingRifle.DisableEffects ();
-        playerShootingShotgun.DisableEffects ();
+        playerShooting.DisableEffects ();
 
         //mentrigger animasi Die
         anim.SetTrigger("Die");
@@ -94,8 +91,7 @@ public class PlayerHealth : MonoBehaviour
         playerMovement.enabled = false;
         
         // mematikan script player shooting
-        playerShootingRifle.enabled = false;
-        playerShootingShotgun.enabled = false;
+        playerShooting.enabled = false;
     }
 
 

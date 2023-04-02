@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerShootingShotgun : MonoBehaviour
+public class PlayerShooting : MonoBehaviour
 {
     // public int damagePerShot = Mathf.Lerp(30, 10, distance / maxDistance);
     public int damagePerShot = 20;
