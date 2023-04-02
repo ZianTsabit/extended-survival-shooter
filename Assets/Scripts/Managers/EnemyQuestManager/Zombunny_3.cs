@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class Zombunny_3 : MonoBehaviour
 {
     public static int enemyKilled;
-    public static int targetKill = 15;
+    public static int targetKill;
+    public int enemyCount;
 
     Text text;
     // Start is called before the first frame update
@@ -12,6 +13,7 @@ public class Zombunny_3 : MonoBehaviour
     {
         text = GetComponent<Text>();
         enemyKilled = 0;
+        targetKill = enemyCount;
     }
 
     // Update is called once per frame

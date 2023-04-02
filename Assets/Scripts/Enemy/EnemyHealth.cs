@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -95,9 +96,9 @@ public class EnemyHealth : MonoBehaviour
         if (sceneIdx == 1) // Level_1
         {
             if (enemyType == 0) Zombunny_1.enemyKilled++;
-            
-            if (Zombunny_1.enemyKilled == Zombunny_1.targetKill) UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIdx + 1);
 
+            if (Zombunny_1.enemyKilled == Zombunny_1.targetKill) ShopManager.afterQuestShopping = true;
+            
         } else if (sceneIdx == 2) // Level_2
         {
             if (enemyType == 0) Zombunny_2.enemyKilled++;

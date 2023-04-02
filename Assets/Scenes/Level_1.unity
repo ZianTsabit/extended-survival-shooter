@@ -843,6 +843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb0aa87508573334183fc8ddf3058dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyCount: 10
 --- !u!1 &1079673031
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +893,7 @@ GameObject:
   - component: {fileID: 1340957442}
   - component: {fileID: 1340957441}
   - component: {fileID: 1340957443}
+  - component: {fileID: 1340957444}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -971,6 +973,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 418297610d990cd409f2524848365a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSecond: 0
+--- !u!114 &1340957444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340957439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe9f8e8007da1de44aa0930ae6416a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1395339719

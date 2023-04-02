@@ -1293,6 +1293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8415a87685323e44aff5dac096b6b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyCount: 3
 --- !u!1 &1657106152
 GameObject:
   m_ObjectHideFlags: 0

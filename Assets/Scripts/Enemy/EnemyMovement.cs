@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         //Pindah ke player position
-        if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
+        if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0 && !ShopManager.afterQuestShopping)
         {
             nav.SetDestination(player.position);
         }

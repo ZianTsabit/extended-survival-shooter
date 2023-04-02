@@ -534,6 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bba130e85a3dae459df56c6c7110a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyCount: 5
 --- !u!1 &429228027 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4372207815532354680, guid: 1160d067d95320d4ebab70eb0261d6d0, type: 3}
@@ -627,6 +628,7 @@ GameObject:
   - component: {fileID: 479536154}
   - component: {fileID: 479536153}
   - component: {fileID: 479536152}
+  - component: {fileID: 479536155}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -709,6 +711,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479536150}
   m_CullTransparentMesh: 1
+--- !u!114 &479536155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479536150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe9f8e8007da1de44aa0930ae6416a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &488214013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,6 +1044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b2cd2d5c65e0f64b97ba22c92bf7aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyCount: 10
 --- !u!1 &1042847073
 GameObject:
   m_ObjectHideFlags: 0
