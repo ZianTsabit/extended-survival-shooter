@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ShopManager : MonoBehaviour
 {
@@ -33,5 +34,9 @@ public class ShopManager : MonoBehaviour
             shopPanels[i].itemPrice.text = shopItems[i].itemPrice.ToString();
             shopPanels[i].itemDescription.text = shopItems[i].itemDescription;
         }
+    }
+    
+    public void QuitShop(){
+        SceneManager.LoadScene(2);
     }
 }
