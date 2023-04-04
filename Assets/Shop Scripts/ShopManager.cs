@@ -9,12 +9,15 @@ public class ShopManager : MonoBehaviour
     //[SerializeField]
     private static float shoppingTime = 10f;
     //[SerializeField]
+    public GameObject shopkeeper;
     //private float timeElapsed;
 
     // Start is called before the first frame update
     void Start()
     {
         afterQuestShopping = false;
+        shopkeeper = GameObject.Find("ShopkeeperRDY");
+        shopkeeper.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,16 +25,20 @@ public class ShopManager : MonoBehaviour
     {
         if (afterQuestShopping)
         {
-            //timeElapsed += Time.deltaTime;
-            //if(timeElapsed > shoppingTime)
-            //{
-            //    afterQuestShopping = false;
-            //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            //}
+            
+            shopkeeper.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                Debug.Log("B pressed!");
+                SceneManager.LoadScene(8);
+            }
+
             shoppingTime -= Time.deltaTime;
             if (shoppingTime <= 0f)
             {
+                Debug.Log("Time is up!");
                 afterQuestShopping = false;
+                shopkeeper.SetActive(false);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }

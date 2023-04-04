@@ -8,13 +8,13 @@ public class TimeManager : MonoBehaviour
     public static double totalSecond;
     public double currentSecond;
 
-    private float shoppingTimeElapsed;
+    // private float shoppingTimeElapsed;
 
     Text text;
     void Awake ()
     {
         text = GetComponent <Text> ();
-        shoppingTimeElapsed = 0f;
+        // shoppingTimeElapsed = 0f;
     }
 
 
