@@ -17,7 +17,6 @@ public class ShopScript : MonoBehaviour
     void Start()
     {
         afterQuestShopping = false;
-        shopkeeper = GameObject.Find("ShopkeeperRDY");
         shopkeeperTransform = shopkeeper.GetComponent<Transform>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         shopkeeper.SetActive(false);

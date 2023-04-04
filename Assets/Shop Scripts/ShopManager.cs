@@ -6,13 +6,17 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    
+    public int money;
+    public TMP_Text moneyUI;
     public ShopItemSO[] shopItems;
     public ShopTemplate[] shopPanels;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {  
+        money = MoneyManager.money;
+        Debug.Log("Money : " + money);
+        moneyUI.text = "Money : " + money.ToString();
         LoadPanels();
     }
 
