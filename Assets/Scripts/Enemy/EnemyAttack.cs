@@ -55,7 +55,7 @@ public class EnemyAttack : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0 && !ShopManager.afterQuestShopping)
+        if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0 && !ShopScript.afterQuestShopping)
         {
             Attack();
         }

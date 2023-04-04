@@ -20,7 +20,7 @@ public class TimeManager : MonoBehaviour
 
     void Update ()
     {
-        if (!PlayerHealth.isDead && !ShopManager.afterQuestShopping)
+        if (!PlayerHealth.isDead && !ShopScript.afterQuestShopping)
         {
             currentSecond = Math.Floor(Time.timeSinceLevelLoad);
 
@@ -29,9 +29,9 @@ public class TimeManager : MonoBehaviour
             text.text = min + " : " + sec;
         }
 
-        if (ShopManager.afterQuestShopping)
+        if (ShopScript.afterQuestShopping)
         {
-            text.text = Math.Floor(ShopManager.getTime()).ToString();
+            text.text = Math.Floor(ShopScript.getTime()).ToString();
         }
     }
 
