@@ -7,7 +7,7 @@ public class ShopScript : MonoBehaviour
 {
     public static bool afterQuestShopping;
     //[SerializeField]
-    public static float shoppingTime = 10f;
+    public static float shoppingTime;
     public GameObject shopkeeper;
     //private float timeElapsed;
     Transform player;
@@ -16,6 +16,7 @@ public class ShopScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shoppingTime = 10f;
         afterQuestShopping = false;
         shopkeeperTransform = shopkeeper.GetComponent<Transform>();
         player = GameObject.FindGameObjectWithTag("Player").transform;

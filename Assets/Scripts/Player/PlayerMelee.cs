@@ -8,7 +8,7 @@ public class PlayerMelee : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" && !ShopScript.afterQuestShopping)
         {
             other.gameObject.GetComponent<EnemyHealth>().TakeDamage(attackDamage, transform.position);
         }
