@@ -403,6 +403,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488214013}
   m_CullTransparentMesh: 1
+--- !u!1001 &577353745
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1581993648}
+    m_Modifications:
+    - target: {fileID: 1411131177552571529, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411131177552571529, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.0585954
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411131177552571529, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411131177552571529, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.3157495
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411131177552571529, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411131177552571529, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411131177552571529, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411131177552571529, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411131177552571529, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411131177552571529, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411131177552571529, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411131177552571542, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+      propertyPath: m_Name
+      value: PetHCapsule
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+--- !u!4 &577353746 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1411131177552571529, guid: ec85194cc51fa4b47a6d14e7792545c3, type: 3}
+  m_PrefabInstance: {fileID: 577353745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &731298445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1255,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574794362}
   m_CullTransparentMesh: 1
+--- !u!1 &1581993647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1581993648}
+  - component: {fileID: 1581993649}
+  m_Layer: 0
+  m_Name: PetHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1581993648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581993647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 577353746}
+  m_Father: {fileID: 380439167}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1581993649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581993647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf476b8f5d9e801419ec028515e21c48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pet: {fileID: 0}
 --- !u!1 &1594556417
 GameObject:
   m_ObjectHideFlags: 0
