@@ -13,13 +13,15 @@ public class ShopManager : MonoBehaviour
     public ShopItemSO[] shopItems;
     public ShopTemplate[] shopPanels;
     public Button[] buyButton;
-    
+    public GameObject successPanel;
     // Start is called before the first frame update
     void Start()
     {  
         money = MoneyManager.money;
         Debug.Log("Money : " + money);
         moneyUI.text = "Money : " + money.ToString();
+        successPanel = GameObject.Find("Success");
+        successPanel.SetActive(false);
         isHavePet = false;
         LoadPanels();
         CheckPurhaseable();
@@ -37,15 +39,19 @@ public class ShopManager : MonoBehaviour
             
             if(shopItems[itemIndex].isPet == true){
                 shopItems[itemIndex].isPurchased = true;
+                successPanel.SetActive(true);
                 isHavePet = true;
             } else if (shopItems[itemIndex].isPet == false && shopItems[itemIndex].itemName == "Gun Level 2"){
                 shopItems[itemIndex].isPurchased = true;
+                successPanel.SetActive(true);
                 PlayerShooting.damagePerShot += 5;    
             } else if (shopItems[itemIndex].isPet == false && shopItems[itemIndex].itemName == "Shotgun Level 2"){
                 shopItems[itemIndex].isPurchased = true;
+                successPanel.SetActive(true);
                 PlayerShooting.damagePerShot += 5;    
             } else if (shopItems[itemIndex].isPet == false && shopItems[itemIndex].itemName == "Sword Level 2"){
                 shopItems[itemIndex].isPurchased = true;
+                successPanel.SetActive(true);
                 PlayerMelee.attackDamage += 5; 
             }
 
@@ -88,5 +94,9 @@ public class ShopManager : MonoBehaviour
     
     public void QuitShop(){
         SceneManager.LoadScene(2);
+    }
+
+    public void Continue(){
+        successPanel.SetActive(false);
     }
 }

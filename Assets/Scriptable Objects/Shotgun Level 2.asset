@@ -15,3 +15,5 @@ MonoBehaviour:
   itemName: Shotgun Level 2
   itemDescription: Menambah damage
   itemPrice: 300
+  isPet: 0
+  isPurchased: 0
