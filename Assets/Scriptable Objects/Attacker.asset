@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Attacker
   itemDescription: Menyerang musuh dan mengejar musuh
-  itemPrice: 200
+  itemPrice: 5
+  isPet: 1

@@ -8,5 +8,6 @@ public class ShopItemSO : ScriptableObject
     public string itemName;
     public string itemDescription;
     public int itemPrice;
+    public bool isPet;
 }
 
