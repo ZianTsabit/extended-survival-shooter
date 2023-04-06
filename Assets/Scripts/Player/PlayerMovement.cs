@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (ShopScript.afterQuestShopping) return;
+        // if (ShopScript.afterQuestShopping) return;
 
         //Mendapatkan nilai input horizontal (-1,0,1)
         float h = Input.GetAxisRaw("Horizontal");
