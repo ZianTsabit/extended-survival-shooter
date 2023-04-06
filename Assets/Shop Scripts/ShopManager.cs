@@ -36,7 +36,17 @@ public class ShopManager : MonoBehaviour
         if (money >= shopItems[itemIndex].itemPrice){
             
             if(shopItems[itemIndex].isPet == true){
+                shopItems[itemIndex].isPurchased = true;
                 isHavePet = true;
+            } else if (shopItems[itemIndex].isPet == false && shopItems[itemIndex].itemName == "Gun Level 2"){
+                shopItems[itemIndex].isPurchased = true;
+                PlayerShooting.damagePerShot += 5;    
+            } else if (shopItems[itemIndex].isPet == false && shopItems[itemIndex].itemName == "Shotgun Level 2"){
+                shopItems[itemIndex].isPurchased = true;
+                PlayerShooting.damagePerShot += 5;    
+            } else if (shopItems[itemIndex].isPet == false && shopItems[itemIndex].itemName == "Sword Level 2"){
+                shopItems[itemIndex].isPurchased = true;
+                PlayerMelee.attackDamage += 5; 
             }
 
             money -= shopItems[itemIndex].itemPrice;
@@ -50,7 +60,7 @@ public class ShopManager : MonoBehaviour
 
         for (int i = 0; i < shopItems.Length; i++)
         {
-            if (money >= shopItems[i].itemPrice)
+            if (money >= shopItems[i].itemPrice && shopItems[i].isPurchased == false)
             {   
                 if(shopItems[i].isPet == true && isHavePet == false){
                     buyButton[i].interactable = true;

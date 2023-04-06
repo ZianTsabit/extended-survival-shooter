@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMelee : MonoBehaviour
 {
-    public int attackDamage = 30;
+    public static int attackDamage = 30;
 
     void OnTriggerEnter(Collider other)
     {

@@ -3,7 +3,7 @@
 public class PlayerShooting : MonoBehaviour
 {
     // public int damagePerShot = Mathf.Lerp(30, 10, distance / maxDistance);
-    public int damagePerShot = 20;
+    public static int damagePerShot = 20;
     public float timeBetweenBullets = 0.15f;
     public float range = 100f;
     public int bulletSpread = 1;
@@ -30,6 +30,8 @@ public class PlayerShooting : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+
+        Debug.Log(damagePerShot);
 
         if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0 && !ShopScript.afterQuestShopping)
         {

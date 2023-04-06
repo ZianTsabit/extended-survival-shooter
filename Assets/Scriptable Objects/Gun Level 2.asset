@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Gun Level 2
   itemDescription: Menambah damage
-  itemPrice: 150
+  itemPrice: 5
+  isPet: 0
