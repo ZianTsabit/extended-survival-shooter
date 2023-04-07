@@ -4,6 +4,7 @@ using System.Collections;
 
 public class MoneyManager : MonoBehaviour
 {
+    public static int prevMoney;
     public static int money;
 
 
@@ -19,5 +20,10 @@ public class MoneyManager : MonoBehaviour
     void Update ()
     {
         text.text = "Money : " + money;
+    }
+
+    void OnDestroy()
+    {
+        prevMoney = money;    
     }
 }

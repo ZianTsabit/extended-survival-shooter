@@ -5,10 +5,8 @@ using System;
 
 public class TimeManager : MonoBehaviour
 {
-    public static double totalSecond;
+    public static double prevSecond;
     public double currentSecond;
-
-    // private float shoppingTimeElapsed;
 
     Text text;
     void Awake ()
@@ -25,7 +23,7 @@ public class TimeManager : MonoBehaviour
             currentSecond = Math.Floor(Time.timeSinceLevelLoad);
 
             int min, sec;
-            min = Math.DivRem((int)(totalSecond + currentSecond), 60, out sec);
+            min = Math.DivRem((int)(prevSecond + currentSecond), 60, out sec);
             text.text = min + " : " + sec;
         }
 
@@ -37,6 +35,6 @@ public class TimeManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        totalSecond += currentSecond;
+        prevSecond += currentSecond;
     }
 }

@@ -12,6 +12,7 @@ public class Zombunny_1 : MonoBehaviour
     void Awake ()
     {
         MoneyManager.money = 0; // Since this is the first quest, initiate score to 0 hence it will be used later on further
+        MoneyManager.prevMoney = 0;
         TimeManager.totalSecond = 0f;
 
         text = GetComponent<Text>();
