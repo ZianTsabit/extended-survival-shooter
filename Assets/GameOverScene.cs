@@ -13,6 +13,8 @@ public class GameOverScene : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         PlayerHealth.isDead = false;
+        MoneyManager.money = 0;
+
     }
 
     public void MainMenuButton()

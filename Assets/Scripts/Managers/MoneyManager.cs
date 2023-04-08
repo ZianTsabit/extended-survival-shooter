@@ -6,8 +6,6 @@ public class MoneyManager : MonoBehaviour
 {
     public static int prevMoney;
     public static int money;
-    public EnemyHealth EnemyHealth;
-
 
     Text text;
 
@@ -20,6 +18,7 @@ public class MoneyManager : MonoBehaviour
 
     void Update ()
     {
-        text.text = "Money : " + money;
+
+        text.text = "Money : " + (money + prevMoney);
     }
 }

@@ -10,12 +10,6 @@ public class EnemyHealth : MonoBehaviour
     public int scoreValue = 10;
     public AudioClip deathClip;
 
-    public MoneyManager MoneyManager;
-    public TimeManager TimeManager;
-    public static double prevTime;
-    public static int prevMoney;
-
-
     Animator anim;
     AudioSource enemyAudio;
     ParticleSystem hitParticles;
@@ -105,8 +99,12 @@ public class EnemyHealth : MonoBehaviour
             if (Zombunny_1.enemyKilled == Zombunny_1.targetKill)
             {
                 ShopScript.afterQuestShopping = true;
-                prevTime += TimeManager.currentSecond;
-                Debug.Log(prevTime);
+                TimeManager.prevSecond += TimeManager.currentSecond;
+                MoneyManager.prevMoney += MoneyManager.money;
+                Debug.Log(MoneyManager.money);
+                MoneyManager.money = 0;
+                Debug.Log(MoneyManager.prevMoney);
+                
             }
         } else if (sceneIdx == 3) // Level_2
         {
@@ -116,8 +114,11 @@ public class EnemyHealth : MonoBehaviour
             if (Zombunny_2.enemyKilled >= Zombunny_2.targetKill && Zombear_2.enemyKilled >= Zombear_2.targetKill)
             {
                 ShopScript.afterQuestShopping = true;
-                prevTime += TimeManager.currentSecond;
-                Debug.Log(prevTime);
+                TimeManager.prevSecond += TimeManager.currentSecond;
+                MoneyManager.prevMoney += MoneyManager.money;
+                Debug.Log(MoneyManager.money);
+                MoneyManager.money = 0;
+                Debug.Log(MoneyManager.prevMoney);
             }
         } else if (sceneIdx == 4) // Level_3
         {
@@ -127,8 +128,11 @@ public class EnemyHealth : MonoBehaviour
             if (Zombunny_3.enemyKilled >= Zombunny_3.targetKill && Zombear_3.enemyKilled >= Zombear_3.targetKill)
             {
                 ShopScript.afterQuestShopping = true;
-                prevTime += TimeManager.currentSecond;
-                Debug.Log(prevTime);
+                TimeManager.prevSecond += TimeManager.currentSecond;
+                MoneyManager.prevMoney += MoneyManager.money;
+                Debug.Log(MoneyManager.money);
+                MoneyManager.money = 0;
+                Debug.Log(MoneyManager.prevMoney);
             }
         } else if (sceneIdx == 6) // Level_4
         {
@@ -137,8 +141,11 @@ public class EnemyHealth : MonoBehaviour
             if (Hellephant_4.enemyKilled >= Hellephant_4.targetKill)
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIdx + 1);
-                prevTime += TimeManager.currentSecond;
-                Debug.Log(prevTime);
+                TimeManager.prevSecond += TimeManager.currentSecond;
+                MoneyManager.prevMoney += MoneyManager.money;
+                Debug.Log(MoneyManager.money);
+                MoneyManager.money = 0;
+                Debug.Log(MoneyManager.prevMoney);
             }
         }
 

@@ -7,7 +7,6 @@ public class TimeManager : MonoBehaviour
 {
     public static double prevSecond;
     public static double currentSecond;
-    public EnemyHealth EnemyHealth;
 
     Text text;
     void Awake ()
@@ -19,7 +18,6 @@ public class TimeManager : MonoBehaviour
 
     void Update ()
     {
-        prevSecond = EnemyHealth.prevTime;
         if (!PlayerHealth.isDead && !ShopScript.afterQuestShopping)
         {
             currentSecond = Math.Floor(Time.timeSinceLevelLoad);
