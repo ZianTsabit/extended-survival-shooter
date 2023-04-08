@@ -10,6 +10,11 @@ public class EnemyHealth : MonoBehaviour
     public int scoreValue = 10;
     public AudioClip deathClip;
 
+    public MoneyManager MoneyManager;
+    public TimeManager TimeManager;
+    public static double prevTime;
+    public static int prevMoney;
+
 
     Animator anim;
     AudioSource enemyAudio;
@@ -97,25 +102,44 @@ public class EnemyHealth : MonoBehaviour
         {
             if (enemyType == 0) Zombunny_1.enemyKilled++;
 
-            if (Zombunny_1.enemyKilled == Zombunny_1.targetKill) ShopScript.afterQuestShopping = true;
-            
+            if (Zombunny_1.enemyKilled == Zombunny_1.targetKill)
+            {
+                ShopScript.afterQuestShopping = true;
+                prevTime += TimeManager.currentSecond;
+                Debug.Log(prevTime);
+            }
         } else if (sceneIdx == 3) // Level_2
         {
             if (enemyType == 0) Zombunny_2.enemyKilled++;
             else if (enemyType == 1) Zombear_2.enemyKilled++;
 
-            if (Zombunny_2.enemyKilled >= Zombunny_2.targetKill && Zombear_2.enemyKilled >= Zombear_2.targetKill) ShopScript.afterQuestShopping = true;
+            if (Zombunny_2.enemyKilled >= Zombunny_2.targetKill && Zombear_2.enemyKilled >= Zombear_2.targetKill)
+            {
+                ShopScript.afterQuestShopping = true;
+                prevTime += TimeManager.currentSecond;
+                Debug.Log(prevTime);
+            }
         } else if (sceneIdx == 4) // Level_3
         {
             if (enemyType == 0) Zombunny_3.enemyKilled++;
             else if (enemyType == 1) Zombear_3.enemyKilled++;
 
-            if (Zombunny_3.enemyKilled >= Zombunny_3.targetKill && Zombear_3.enemyKilled >= Zombear_3.targetKill) ShopScript.afterQuestShopping = true;
+            if (Zombunny_3.enemyKilled >= Zombunny_3.targetKill && Zombear_3.enemyKilled >= Zombear_3.targetKill)
+            {
+                ShopScript.afterQuestShopping = true;
+                prevTime += TimeManager.currentSecond;
+                Debug.Log(prevTime);
+            }
         } else if (sceneIdx == 6) // Level_4
         {
             if (enemyType == 2) Hellephant_4.enemyKilled++;
 
-            if (Hellephant_4.enemyKilled >= Hellephant_4.targetKill) UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIdx + 1);
+            if (Hellephant_4.enemyKilled >= Hellephant_4.targetKill)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIdx + 1);
+                prevTime += TimeManager.currentSecond;
+                Debug.Log(prevTime);
+            }
         }
 
         Destroy(gameObject, 2f);

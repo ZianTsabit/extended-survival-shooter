@@ -33,16 +33,16 @@ public class ShopScript : MonoBehaviour
             
             if (Mathf.Abs(player.position.x - shopkeeperTransform.position.x) < 1.0  && Mathf.Abs(player.position.y - shopkeeperTransform.position.y) < 1.0 && Input.GetKeyDown(KeyCode.B))
             {
-                Debug.Log("B pressed!");
+                //Debug.Log("B pressed!");
                 SceneManager.LoadScene(8);
             }else{
-                Debug.Log(Mathf.Abs(player.position.x - shopkeeperTransform.position.x));
+                //Debug.Log(Mathf.Abs(player.position.x - shopkeeperTransform.position.x));
             }
             
             shoppingTime -= Time.deltaTime;
             if (shoppingTime <= 0f)
             {
-                Debug.Log("Time is up!");
+                //Debug.Log("Time is up!");
                 afterQuestShopping = false;
                 shopkeeper.SetActive(false);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GameOverScene : MonoBehaviour
 {
-    public PlayerHealth PlayerHealth;
-
     public void Setup()
     {
         gameObject.SetActive(true);
@@ -13,7 +11,7 @@ public class GameOverScene : MonoBehaviour
 
     public void RestartButton()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         PlayerHealth.isDead = false;
     }
 
@@ -23,3 +21,4 @@ public class GameOverScene : MonoBehaviour
         PlayerHealth.isDead = false;
     }
 }
+ 

@@ -31,8 +31,6 @@ public class PlayerShooting : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        Debug.Log(damagePerShot);
-
         if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0 && !ShopScript.afterQuestShopping)
         {
             Shoot();
