@@ -101,10 +101,7 @@ public class EnemyHealth : MonoBehaviour
                 ShopScript.afterQuestShopping = true;
                 TimeManager.prevSecond += TimeManager.currentSecond;
                 MoneyManager.prevMoney += MoneyManager.money;
-                Debug.Log(MoneyManager.money);
                 MoneyManager.money = 0;
-                Debug.Log(MoneyManager.prevMoney);
-                
             }
         } else if (sceneIdx == 3) // Level_2
         {
@@ -116,9 +113,7 @@ public class EnemyHealth : MonoBehaviour
                 ShopScript.afterQuestShopping = true;
                 TimeManager.prevSecond += TimeManager.currentSecond;
                 MoneyManager.prevMoney += MoneyManager.money;
-                Debug.Log(MoneyManager.money);
                 MoneyManager.money = 0;
-                Debug.Log(MoneyManager.prevMoney);
             }
         } else if (sceneIdx == 4) // Level_3
         {
@@ -130,9 +125,7 @@ public class EnemyHealth : MonoBehaviour
                 ShopScript.afterQuestShopping = true;
                 TimeManager.prevSecond += TimeManager.currentSecond;
                 MoneyManager.prevMoney += MoneyManager.money;
-                Debug.Log(MoneyManager.money);
                 MoneyManager.money = 0;
-                Debug.Log(MoneyManager.prevMoney);
             }
         } else if (sceneIdx == 6) // Level_4
         {
@@ -143,9 +136,7 @@ public class EnemyHealth : MonoBehaviour
                 UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIdx + 1);
                 TimeManager.prevSecond += TimeManager.currentSecond;
                 MoneyManager.prevMoney += MoneyManager.money;
-                Debug.Log(MoneyManager.money);
                 MoneyManager.money = 0;
-                Debug.Log(MoneyManager.prevMoney);
             }
         }
 
