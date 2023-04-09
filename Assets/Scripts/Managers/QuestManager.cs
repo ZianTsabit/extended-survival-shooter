@@ -69,6 +69,7 @@ public class QuestManager : MonoBehaviour
         // Check if quest has been completed or not
         if (questCompleted && !ShopScript.afterQuestShopping)
         {
+            
             // Reward for completing quest
             string sceneName = SceneManager.GetActiveScene().name;
             switch(sceneName)
@@ -85,19 +86,14 @@ public class QuestManager : MonoBehaviour
                 default:
                     break;
             }
+            TimeManager.prevSecond += TimeManager.currentSecond;
+            MoneyManager.prevMoney += MoneyManager.money;
+            Debug.Log(MoneyManager.money);
+            MoneyManager.money = 0;
+            Debug.Log(MoneyManager.prevMoney);
 
             ShopScript.afterQuestShopping = true;
         }
     }
-
-    void OnDestroy()
-    {
-        TimeManager.prevSecond += TimeManager.currentSecond;
-        MoneyManager.prevMoney += MoneyManager.money;
-        Debug.Log(MoneyManager.money);
-        MoneyManager.money = 0;
-        Debug.Log(MoneyManager.prevMoney);
-    }
-
 
 }
