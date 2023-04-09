@@ -8,7 +8,7 @@ public class SettingsScene : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
 
-    private void start()
+    private void Start()
     {
         Debug.Log("start");
         if( PlayerPrefs.HasKey("musicVolume") || PlayerPrefs.HasKey("sfxVolume"))
@@ -19,6 +19,7 @@ public class SettingsScene : MonoBehaviour
         {
             Debug.Log("no key");
             SetMusicVolume();
+            SetSfxVolume();
         }
 
     }
@@ -27,7 +28,7 @@ public class SettingsScene : MonoBehaviour
         float volume = musicSlider.value;
         myMixer.SetFloat("musicVol", Mathf.Log10(volume)*20);
         PlayerPrefs.SetFloat("musicVolume", volume);
-        if (PlayerPrefs.HasKey("musicVolume")) Debug.Log("has key");
+        Debug.Log(volume);
     }
 
     public void SetSfxVolume()
@@ -35,18 +36,22 @@ public class SettingsScene : MonoBehaviour
         float sfxvolume = sfxSlider.value;
         myMixer.SetFloat("sfxVol", Mathf.Log10(sfxvolume) * 20);
         PlayerPrefs.SetFloat("sfxVolume", sfxvolume);
+        Debug.Log(sfxvolume);
     }
 
     private void LoadVolume()
     {
         if (PlayerPrefs.HasKey("musicVolume"))
         {
+            Debug.Log(PlayerPrefs.GetFloat("musicVolume"));
             musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
         }
         if(PlayerPrefs.HasKey("sfxVolume"))
         {
+            Debug.Log(PlayerPrefs.GetFloat("sfxVolume"));
             sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
         }  
         SetMusicVolume();
+        SetSfxVolume();
     }
 }
