@@ -89,65 +89,66 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = true;
         isSinking = true;
         MoneyManager.money += scoreValue;
+        QuestManager.currKills[enemyType]++;
 
-        int sceneIdx = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        //int sceneIdx = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
 
-        if (sceneIdx == 2) // Level_1
-        {
-            if (enemyType == 0) Zombunny_1.enemyKilled++;
+        //if (sceneIdx == 2) // Level_1
+        //{
+        //    if (enemyType == 0) Zombunny_1.enemyKilled++;
 
-            if (Zombunny_1.enemyKilled == Zombunny_1.targetKill)
-            {
-                ShopScript.afterQuestShopping = true;
-                TimeManager.prevSecond += TimeManager.currentSecond;
-                MoneyManager.prevMoney += MoneyManager.money;
-                Debug.Log(MoneyManager.money);
-                MoneyManager.money = 0;
-                Debug.Log(MoneyManager.prevMoney);
+        //    if (Zombunny_1.enemyKilled == Zombunny_1.targetKill)
+        //    {
+        //        ShopScript.afterQuestShopping = true;
+        //        TimeManager.prevSecond += TimeManager.currentSecond;
+        //        MoneyManager.prevMoney += MoneyManager.money;
+        //        Debug.Log(MoneyManager.money);
+        //        MoneyManager.money = 0;
+        //        Debug.Log(MoneyManager.prevMoney);
                 
-            }
-        } else if (sceneIdx == 3) // Level_2
-        {
-            if (enemyType == 0) Zombunny_2.enemyKilled++;
-            else if (enemyType == 1) Zombear_2.enemyKilled++;
+        //    }
+        //} else if (sceneIdx == 3) // Level_2
+        //{
+        //    if (enemyType == 0) Zombunny_2.enemyKilled++;
+        //    else if (enemyType == 1) Zombear_2.enemyKilled++;
 
-            if (Zombunny_2.enemyKilled >= Zombunny_2.targetKill && Zombear_2.enemyKilled >= Zombear_2.targetKill)
-            {
-                ShopScript.afterQuestShopping = true;
-                TimeManager.prevSecond += TimeManager.currentSecond;
-                MoneyManager.prevMoney += MoneyManager.money;
-                Debug.Log(MoneyManager.money);
-                MoneyManager.money = 0;
-                Debug.Log(MoneyManager.prevMoney);
-            }
-        } else if (sceneIdx == 4) // Level_3
-        {
-            if (enemyType == 0) Zombunny_3.enemyKilled++;
-            else if (enemyType == 1) Zombear_3.enemyKilled++;
+        //    if (Zombunny_2.enemyKilled >= Zombunny_2.targetKill && Zombear_2.enemyKilled >= Zombear_2.targetKill)
+        //    {
+        //        ShopScript.afterQuestShopping = true;
+        //        TimeManager.prevSecond += TimeManager.currentSecond;
+        //        MoneyManager.prevMoney += MoneyManager.money;
+        //        Debug.Log(MoneyManager.money);
+        //        MoneyManager.money = 0;
+        //        Debug.Log(MoneyManager.prevMoney);
+        //    }
+        //} else if (sceneIdx == 4) // Level_3
+        //{
+        //    if (enemyType == 0) Zombunny_3.enemyKilled++;
+        //    else if (enemyType == 1) Zombear_3.enemyKilled++;
 
-            if (Zombunny_3.enemyKilled >= Zombunny_3.targetKill && Zombear_3.enemyKilled >= Zombear_3.targetKill)
-            {
-                ShopScript.afterQuestShopping = true;
-                TimeManager.prevSecond += TimeManager.currentSecond;
-                MoneyManager.prevMoney += MoneyManager.money;
-                Debug.Log(MoneyManager.money);
-                MoneyManager.money = 0;
-                Debug.Log(MoneyManager.prevMoney);
-            }
-        } else if (sceneIdx == 6) // Level_4
-        {
-            if (enemyType == 2) Hellephant_4.enemyKilled++;
+        //    if (Zombunny_3.enemyKilled >= Zombunny_3.targetKill && Zombear_3.enemyKilled >= Zombear_3.targetKill)
+        //    {
+        //        ShopScript.afterQuestShopping = true;
+        //        TimeManager.prevSecond += TimeManager.currentSecond;
+        //        MoneyManager.prevMoney += MoneyManager.money;
+        //        Debug.Log(MoneyManager.money);
+        //        MoneyManager.money = 0;
+        //        Debug.Log(MoneyManager.prevMoney);
+        //    }
+        //} else if (sceneIdx == 6) // Level_4
+        //{
+        //    if (enemyType == 2) Hellephant_4.enemyKilled++;
 
-            if (Hellephant_4.enemyKilled >= Hellephant_4.targetKill)
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIdx + 1);
-                TimeManager.prevSecond += TimeManager.currentSecond;
-                MoneyManager.prevMoney += MoneyManager.money;
-                Debug.Log(MoneyManager.money);
-                MoneyManager.money = 0;
-                Debug.Log(MoneyManager.prevMoney);
-            }
-        }
+        //    if (Hellephant_4.enemyKilled >= Hellephant_4.targetKill)
+        //    {
+        //        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIdx + 1);
+        //        TimeManager.prevSecond += TimeManager.currentSecond;
+        //        MoneyManager.prevMoney += MoneyManager.money;
+        //        Debug.Log(MoneyManager.money);
+        //        MoneyManager.money = 0;
+        //        Debug.Log(MoneyManager.prevMoney);
+        //    }
+        //}
 
         Destroy(gameObject, 2f);
     }

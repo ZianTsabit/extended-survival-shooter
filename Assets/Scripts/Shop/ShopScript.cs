@@ -6,10 +6,8 @@ using UnityEngine.SceneManagement;
 public class ShopScript : MonoBehaviour
 {
     public static bool afterQuestShopping;
-    //[SerializeField]
     public static float shoppingTime;
     public GameObject shopkeeper;
-    //private float timeElapsed;
     Transform player;
     Transform shopkeeperTransform;
 
@@ -42,9 +40,6 @@ public class ShopScript : MonoBehaviour
             shoppingTime -= Time.deltaTime;
             if (shoppingTime <= 0f)
             {
-                //Debug.Log("Time is up!");
-                afterQuestShopping = false;
-                shopkeeper.SetActive(false);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
@@ -53,6 +48,11 @@ public class ShopScript : MonoBehaviour
     public static float getTime()
     {
         return shoppingTime;
+    }
+
+    private void OnDestroy()
+    {
+        afterQuestShopping = false;
     }
 
 }

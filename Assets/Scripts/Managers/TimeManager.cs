@@ -12,7 +12,6 @@ public class TimeManager : MonoBehaviour
     void Awake ()
     {
         text = GetComponent <Text> ();
-        // shoppingTimeElapsed = 0f;
     }
 
 
