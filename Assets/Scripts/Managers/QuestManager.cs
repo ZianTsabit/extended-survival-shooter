@@ -83,6 +83,9 @@ public class QuestManager : MonoBehaviour
                 case "Level_3":
                     MoneyManager.money += 150;
                     break;
+                case "Level_4":
+                    SceneManager.LoadScene("Closing");
+                    break;
                 default:
                     break;
             }
