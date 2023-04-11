@@ -18,10 +18,11 @@ public class ShopManager : MonoBehaviour
     void Start()
     {  
         money = MoneyManager.money + MoneyManager.prevMoney;
-        Debug.Log("Money : " + money);
         moneyUI.text = "Money : " + money.ToString();
+        
         successPanel = GameObject.Find("Success");
         successPanel.SetActive(false);
+
         LoadPanels();
         CheckPurhaseable();
     }
@@ -77,7 +78,7 @@ public class ShopManager : MonoBehaviour
                     buyButton[i].interactable = true;
                 } else if(shopItems[i].isPet == false){
                     buyButton[i].interactable = true;
-                } else if (shopItems[i].isPet == true && isHavePet == false) {
+                } else if (shopItems[i].isPet == true && isHavePet == true) {
                     buyButton[i].interactable = false;
                 }
             }
@@ -96,7 +97,7 @@ public class ShopManager : MonoBehaviour
     }
     
     public void QuitShop(){
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(QuestManager.currentSceneIndex+1);
     }
 
     public void Continue(){

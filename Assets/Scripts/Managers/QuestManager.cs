@@ -10,12 +10,15 @@ public class QuestManager : MonoBehaviour
     public int[] targetKills;
     public static int[] currKills;
 
+    public static int currentSceneIndex;
+
     public Text questList;
 
     // Start is called before the first frame update
     void Start()
     {
         // initiate three types of enemies
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         currKills = new int[enemyTypes.Length];
         for(int i = 0; i < enemyTypes.Length; i++)
         {
@@ -26,6 +29,7 @@ public class QuestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         bool questCompleted = true;
         questList.text = string.Empty;
         questList.text += levelName + "\n";
