@@ -1,14 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-public class PlayerShooting : MonoBehaviour
+public class PlayerShotgun : MonoBehaviour
 {
     // public int damagePerShot = Mathf.Lerp(30, 10, distance / maxDistance);
     public static int damagePerShot = 20;
-    public static bool isEquipped = true;
     public float timeBetweenBullets = 0.15f;
     public float range = 100f;
     public int bulletSpread = 1;
-    
+    public static bool isEquipped = false;
+
     float timer;
     Ray shootRay;
     RaycastHit shootHit;

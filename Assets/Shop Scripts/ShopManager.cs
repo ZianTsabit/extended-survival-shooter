@@ -14,7 +14,7 @@ public class ShopManager : MonoBehaviour
     public ShopTemplate[] shopPanels;
     public Button[] buyButton;
     public GameObject successPanel;
-    // Start is called before the first frame update
+    
     void Start()
     {  
         money = MoneyManager.money + MoneyManager.prevMoney;
@@ -44,15 +44,20 @@ public class ShopManager : MonoBehaviour
             } else if (shopItems[itemIndex].isPet == false && shopItems[itemIndex].itemName == "Gun Level 2"){
                 shopItems[itemIndex].isPurchased = true;
                 successPanel.SetActive(true);
-                PlayerShooting.damagePerShot += 5;    
-            } else if (shopItems[itemIndex].isPet == false && shopItems[itemIndex].itemName == "Shotgun Level 2"){
+                PlayerShooting.damagePerShot += 10;    
+            } else if (shopItems[itemIndex].isPet == false && shopItems[itemIndex].itemName == "Shotgun"){
                 shopItems[itemIndex].isPurchased = true;
                 successPanel.SetActive(true);
-                PlayerShooting.damagePerShot += 5;    
-            } else if (shopItems[itemIndex].isPet == false && shopItems[itemIndex].itemName == "Sword Level 2"){
+                PlayerShotgun.isEquipped = true;    
+            } else if (shopItems[itemIndex].isPet == false && shopItems[itemIndex].itemName == "Sword"){
                 shopItems[itemIndex].isPurchased = true;
                 successPanel.SetActive(true);
-                PlayerMelee.attackDamage += 5; 
+                PlayerMelee.isEquipped = true;
+                Debug.Log("Sword Purchased"); 
+            } else if (shopItems[itemIndex].isPet == false && shopItems[itemIndex].itemName == "Bow"){
+                shopItems[itemIndex].isPurchased = true;
+                successPanel.SetActive(true);
+                PlayerBow.isEquipped = true; 
             }
 
             money -= shopItems[itemIndex].itemPrice;

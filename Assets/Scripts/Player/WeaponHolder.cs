@@ -47,11 +47,20 @@ public class WeaponHolder : MonoBehaviour {
     }
 
     private void Select(int weaponIndex) {
+        int previousSelectedWeapon = selectedWeapon;
         for (int i = 0; i < weapons.Length; i++)
-            weapons[i].gameObject.SetActive(i == weaponIndex);
+            // check if the child isEquipped
+            if (weapons[i].gameObject.name == "Bow" && PlayerBow.isEquipped){
+                weapons[i].gameObject.SetActive(i == weaponIndex);
+            } else if (weapons[i].gameObject.name == "Sword" && PlayerMelee.isEquipped){
+                weapons[i].gameObject.SetActive(i == weaponIndex);
+            } else if (weapons[i].gameObject.name == "Rifle" && PlayerShooting.isEquipped){
+                weapons[i].gameObject.SetActive(i == weaponIndex);
+            } else if (weapons[i].gameObject.name == "Shotgun" && PlayerShotgun.isEquipped){
+                weapons[i].gameObject.SetActive(i == weaponIndex);
+            }
 
         timeSinceLastSwitch = 0f;
-
         OnWeaponSelected();
     }
 
