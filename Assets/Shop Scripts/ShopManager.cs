@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ShopManager : MonoBehaviour
 {
-    public static bool isHavePet;
+    public static bool isHavePet = false;
     public int money;
     public TMP_Text moneyUI;
     public ShopItemSO[] shopItems;
@@ -22,7 +22,6 @@ public class ShopManager : MonoBehaviour
         moneyUI.text = "Money : " + money.ToString();
         successPanel = GameObject.Find("Success");
         successPanel.SetActive(false);
-        isHavePet = false;
         LoadPanels();
         CheckPurhaseable();
     }
@@ -61,6 +60,7 @@ public class ShopManager : MonoBehaviour
             }
 
             money -= shopItems[itemIndex].itemPrice;
+            MoneyManager.money -= shopItems[itemIndex].itemPrice;
             moneyUI.text = "Money : " + money.ToString();
             CheckPurhaseable();
         }
@@ -77,7 +77,7 @@ public class ShopManager : MonoBehaviour
                     buyButton[i].interactable = true;
                 } else if(shopItems[i].isPet == false){
                     buyButton[i].interactable = true;
-                } else{
+                } else if (shopItems[i].isPet == true && isHavePet == false) {
                     buyButton[i].interactable = false;
                 }
             }

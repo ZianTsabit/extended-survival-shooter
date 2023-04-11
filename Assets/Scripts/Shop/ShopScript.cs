@@ -29,7 +29,7 @@ public class ShopScript : MonoBehaviour
             
             shopkeeper.SetActive(true);
             
-            if (Mathf.Abs(player.position.x - shopkeeperTransform.position.x) < 1.0  && Mathf.Abs(player.position.y - shopkeeperTransform.position.y) < 1.0 && Input.GetKeyDown(KeyCode.B))
+            if (Mathf.Abs(player.position.x - shopkeeperTransform.position.x) < 1.5  && Mathf.Abs(player.position.y - shopkeeperTransform.position.y) < 1.5 && Input.GetKeyDown(KeyCode.B))
             {
                 //Debug.Log("B pressed!");
                 SceneManager.LoadScene(8);
