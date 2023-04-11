@@ -17,7 +17,7 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {  
-        money = MoneyManager.money;
+        money = MoneyManager.money + MoneyManager.prevMoney;
         Debug.Log("Money : " + money);
         moneyUI.text = "Money : " + money.ToString();
         successPanel = GameObject.Find("Success");
@@ -86,9 +86,7 @@ public class ShopManager : MonoBehaviour
     public void LoadPanels(){
         for (int i = 0; i < shopItems.Length; i++)
         {
-            shopPanels[i].itemName.text = shopItems[i].itemName;
-            shopPanels[i].itemPrice.text = shopItems[i].itemPrice.ToString();
-            shopPanels[i].itemDescription.text = shopItems[i].itemDescription;
+            shopPanels[i].SetItem(shopItems[i]);
         }
     }
     

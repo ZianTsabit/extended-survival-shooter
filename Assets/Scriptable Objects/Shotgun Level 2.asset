@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b5a2f8058ed034db77c4a937fc86a8, type: 3}
   m_Name: Shotgun Level 2
   m_EditorClassIdentifier: 
-  itemName: Shotgun Level 2
-  itemDescription: Menambah damage
-  itemPrice: 300
+  itemName: Shotgun
+  itemDescription: shotgun memiliki peluru yang menyebar
+  itemImage: {fileID: 21300000, guid: 7c2bf2ec5f8db644f8a190b012447016, type: 3}
+  itemPrice: 250
   isPet: 0
   isPurchased: 0

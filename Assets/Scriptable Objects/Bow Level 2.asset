@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b5a2f8058ed034db77c4a937fc86a8, type: 3}
   m_Name: Bow Level 2
   m_EditorClassIdentifier: 
-  itemName: ' Bow Level 2'
-  itemDescription: Menambah damage
+  itemName: ' Bow'
+  itemDescription: Dapat menembakan anak panah
+  itemImage: {fileID: 21300000, guid: 14f5f7da658e5ed44bb43e5e9882cf8d, type: 3}
   itemPrice: 200
   isPet: 0
   isPurchased: 0
