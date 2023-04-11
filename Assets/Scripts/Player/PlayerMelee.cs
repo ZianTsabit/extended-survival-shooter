@@ -10,7 +10,7 @@ public class PlayerMelee : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy" && !ShopScript.afterQuestShopping)
         {
-            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(attackDamage, transform.position);
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(attackDamage + WeaponHolder.bonusDamage, transform.position);
         }
     }
 }

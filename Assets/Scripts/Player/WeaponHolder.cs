@@ -13,6 +13,7 @@ public class WeaponHolder : MonoBehaviour {
 
     [Header("Settings")]
     [SerializeField] private float switchTime;
+    public static int bonusDamage;
 
     private int selectedWeapon;
     private float timeSinceLastSwitch;

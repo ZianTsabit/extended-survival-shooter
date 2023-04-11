@@ -28,7 +28,7 @@ public class Arrow : MonoBehaviour
 
         if (collider.gameObject.CompareTag("Enemy"))
         {
-            collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage, transform.position);
+            collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage + WeaponHolder.bonusDamage, transform.position);
         }
 
         rigid.velocity = Vector3.zero;
