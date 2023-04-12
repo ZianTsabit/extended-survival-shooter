@@ -32,9 +32,7 @@ public class ShopScript : MonoBehaviour
             if (Mathf.Abs(player.position.x - shopkeeperTransform.position.x) < 1.5  && Mathf.Abs(player.position.y - shopkeeperTransform.position.y) < 1.5 && Input.GetKeyDown(KeyCode.B))
             {
                 //Debug.Log("B pressed!");
-                SceneManager.LoadScene(8);
-            }else{
-                //Debug.Log(Mathf.Abs(player.position.x - shopkeeperTransform.position.x));
+                SceneManager.LoadScene("Shopkeeper");
             }
             
             shoppingTime -= Time.deltaTime;

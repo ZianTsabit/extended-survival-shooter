@@ -81,7 +81,7 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
 
         playerShooting.DisableEffects ();
-        playerShotgun.DisableEffects();
+        //playerShotgun.DisableEffects();
 
         //mentrigger animasi Die
         anim.SetTrigger("Die");
@@ -94,7 +94,7 @@ public class PlayerHealth : MonoBehaviour
         playerMovement.enabled = false;
         
         // mematikan script player shooting
-        playerShooting.enabled = false;
+        //playerShooting.enabled = false;
         playerShotgun.enabled = false;
 
         GameOverScene.Setup();
