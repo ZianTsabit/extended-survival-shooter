@@ -7,7 +7,7 @@ public class PlayerShotgun : MonoBehaviour
     public float timeBetweenBullets = 0.5f;
     public float range = 10f;
     public int bulletSpread = 2;
-    public static bool isEquipped = true;
+    public static bool isEquipped = false;
 
     float timer;
     Ray shootRay;
