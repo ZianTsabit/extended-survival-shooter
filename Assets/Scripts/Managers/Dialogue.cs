@@ -32,7 +32,7 @@ public class Dialogue : MonoBehaviour
             {
                 if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Closing")
                 {
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("Leaderboard");
                 }
                 else
                 {
