@@ -18,7 +18,6 @@ public class MoneyManager : MonoBehaviour
 
     void Update ()
     {
-
         text.text = "Money : " + (money + prevMoney);
     }
 }

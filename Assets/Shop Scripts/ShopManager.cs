@@ -22,8 +22,7 @@ public class ShopManager : MonoBehaviour
     {  
         money = MoneyManager.money + MoneyManager.prevMoney;
         moneyUI.text = "Money : " + money.ToString();
-        
-        successPanel = GameObject.Find("Success");
+    
         successPanel.SetActive(false);
 
         LoadPanels();
@@ -33,7 +32,11 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        money = MoneyManager.money + MoneyManager.prevMoney;
+        moneyUI.text = "Money : " + money.ToString();  
+
+        LoadPanels();
+        CheckPurhaseable();
     }
 
     public void purchaseItem(int itemIndex){
@@ -108,10 +111,6 @@ public class ShopManager : MonoBehaviour
         {
             shopPanels[i].SetItem(shopItems[i]);
         }
-    }
-    
-    public void QuitShop(){
-        SceneManager.LoadScene(QuestManager.currentSceneIndex+1);
     }
 
     public void Continue(){

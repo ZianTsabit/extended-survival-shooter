@@ -8,6 +8,7 @@ public class ShopScript : MonoBehaviour
     public static bool afterQuestShopping;
     public static float shoppingTime;
     public GameObject shopkeeper;
+    public GameObject shopUI;
     Transform player;
     Transform shopkeeperTransform;
 
@@ -19,6 +20,7 @@ public class ShopScript : MonoBehaviour
         shopkeeperTransform = shopkeeper.GetComponent<Transform>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         shopkeeper.SetActive(false);
+        shopUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,13 +34,14 @@ public class ShopScript : MonoBehaviour
             if (Mathf.Abs(player.position.x - shopkeeperTransform.position.x) < 1.5  && Mathf.Abs(player.position.y - shopkeeperTransform.position.y) < 1.5 && Input.GetKeyDown(KeyCode.B))
             {
                 //Debug.Log("B pressed!");
-                SceneManager.LoadScene("Shopkeeper");
+                shopUI.SetActive(true);
             }
             
-            shoppingTime -= Time.deltaTime;
-            if (shoppingTime <= 0f)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (shopUI.activeSelf == false){
+                shoppingTime -= Time.deltaTime;
+                if (shoppingTime <= 0f){
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
             }
         }
     }
@@ -46,6 +49,11 @@ public class ShopScript : MonoBehaviour
     public static float getTime()
     {
         return shoppingTime;
+    }
+
+    public void QuitShop()
+    {
+        shopUI.SetActive(false);
     }
 
     private void OnDestroy()
