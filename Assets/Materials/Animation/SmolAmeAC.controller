@@ -70,7 +70,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 2261156645235753773, guid: 4b3341513e87cda4eacd73d7573e6e78, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: f1446bf4fe4655249a105ac0e4bc7b73, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -92,7 +92,7 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: Die
-    m_Type: 4
+    m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -156,7 +156,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 2261156645235753773, guid: 4b3341513e87cda4eacd73d7573e6e78, type: 3}
+  m_Motion: {fileID: -5252816984213320552, guid: 4b3341513e87cda4eacd73d7573e6e78, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
