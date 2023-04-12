@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMelee : MonoBehaviour
 {
     public static int attackDamage = 30;
-    public static bool isEquipped = false;
+    public static bool isEquipped = true;
 
     void OnTriggerEnter(Collider other)
     {

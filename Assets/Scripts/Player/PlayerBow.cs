@@ -14,7 +14,7 @@ public class PlayerBow : MonoBehaviour
 
     private Arrow currentArrow;
 
-    public static bool isEquipped = false;
+    public static bool isEquipped = true;
 
     private bool isReloading;
 
