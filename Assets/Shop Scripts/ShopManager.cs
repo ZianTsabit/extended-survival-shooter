@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 public class ShopManager : MonoBehaviour
 {
     public static bool isHavePet = false;
+    public static bool isHaveAttacker = false;
+    public static bool isHaveBuffAura = false;
+    public static bool isHaveHealer = false;
     public int money;
     public TMP_Text moneyUI;
     public ShopItemSO[] shopItems;
@@ -37,10 +40,21 @@ public class ShopManager : MonoBehaviour
         
         if (money >= shopItems[itemIndex].itemPrice){
             
-            if(shopItems[itemIndex].isPet == true){
+            if(shopItems[itemIndex].isPet == true && shopItems[itemIndex].itemName == "Healer"){
                 shopItems[itemIndex].isPurchased = true;
                 successPanel.SetActive(true);
                 isHavePet = true;
+                isHaveHealer = true;
+            } else if (shopItems[itemIndex].isPet == true && shopItems[itemIndex].itemName == "Attacker"){
+                shopItems[itemIndex].isPurchased = true;
+                successPanel.SetActive(true);
+                isHavePet = true;
+                isHaveAttacker = true;   
+            } else if (shopItems[itemIndex].isPet == true && shopItems[itemIndex].itemName == "Buff Aura"){
+                shopItems[itemIndex].isPurchased = true;
+                successPanel.SetActive(true);
+                isHavePet = true;
+                isHaveBuffAura = true;   
             } else if (shopItems[itemIndex].isPet == false && shopItems[itemIndex].itemName == "Gun Level 2"){
                 shopItems[itemIndex].isPurchased = true;
                 successPanel.SetActive(true);

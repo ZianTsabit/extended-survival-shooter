@@ -101,6 +101,8 @@ public class HealerPet : MonoBehaviour
 
             // Destroy the pet
             Destroy(gameObject, 2f);
+            ShopManager.isHavePet = false;
+            ShopManager.isHaveHealer = false;
         }
     }
 

@@ -87,6 +87,8 @@ public class AttackPet : MonoBehaviour
 
             // Destroy the pet
             Destroy(gameObject, 2f);
+            ShopManager.isHavePet = false;
+            ShopManager.isHaveAttacker = false;
         }
     }
 

@@ -5,21 +5,38 @@ using UnityEngine;
 public class PetScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject pet;
+    public GameObject healer;
+    public GameObject attacker;
+    public GameObject buffAura;
 
     void Start()
     {
-        pet = GameObject.FindGameObjectWithTag("Pet");
-        pet.SetActive(false);
+        healer.SetActive(false);
+
+        attacker.SetActive(false);
+
+        buffAura.SetActive(false);
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ShopManager.isHavePet)
+        if (ShopManager.isHavePet == true && ShopManager.isHaveHealer == true)
         {
-            pet.SetActive(true);
+            healer.SetActive(true);
+            attacker.SetActive(false);
+            buffAura.SetActive(false);
+        } else if (ShopManager.isHavePet == true && ShopManager.isHaveAttacker == true)
+        {
+            healer.SetActive(false);
+            attacker.SetActive(true);
+            buffAura.SetActive(false);
+        } else if (ShopManager.isHavePet == true && ShopManager.isHaveBuffAura == true)
+        {
+            healer.SetActive(false);
+            attacker.SetActive(false);
+            buffAura.SetActive(true);
         }
         
     }

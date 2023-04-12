@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Attacker
   itemDescription: Pet dapat  menyerang musuh dan mengejar musuh
   itemImage: {fileID: 21300000, guid: 0fd492af23d59f745bc9d582e535cb0e, type: 3}
-  itemPrice: 150
+  itemPrice: 10
   isPet: 1
   isPurchased: 0

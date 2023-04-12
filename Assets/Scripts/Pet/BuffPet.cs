@@ -88,6 +88,8 @@ public class BuffPet : MonoBehaviour
 
             // Destroy the pet
             Destroy(gameObject, 2f);
+            ShopManager.isHavePet = false;
+            ShopManager.isHaveBuffAura = false;
         }
     }
 
