@@ -7,8 +7,10 @@ public class ShopScript : MonoBehaviour
 {
     public static bool afterQuestShopping;
     public static float shoppingTime;
+    public static float errorTime;
     public GameObject shopkeeper;
     public GameObject shopUI;
+    public GameObject ShopError;
     Transform player;
     Transform shopkeeperTransform;
 
@@ -16,11 +18,13 @@ public class ShopScript : MonoBehaviour
     void Start()
     {
         shoppingTime = 10f;
+        errorTime = 3f;
         afterQuestShopping = false;
         shopkeeperTransform = shopkeeper.GetComponent<Transform>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         shopkeeper.SetActive(false);
         shopUI.SetActive(false);
+        ShopError.SetActive(false);
     }
 
     // Update is called once per frame
@@ -42,6 +46,21 @@ public class ShopScript : MonoBehaviour
                 if (shoppingTime <= 0f){
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
+            }
+        }
+
+        //dissapear after 3 seconds
+        if (afterQuestShopping == false && Input.GetKeyDown(KeyCode.B)){
+            ShopError.SetActive(true);
+        }
+
+        if (ShopError.activeSelf == true)
+        {
+            errorTime -= Time.deltaTime;
+            if (errorTime <= 0f)
+            {
+                ShopError.SetActive(false);
+                errorTime = 3f;
             }
         }
     }
