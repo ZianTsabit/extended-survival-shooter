@@ -88,6 +88,8 @@ public class QuestManager : MonoBehaviour
                     MoneyManager.money += 150;
                     break;
                 case "Level_4":
+                    HighscoreHandler I = new HighscoreHandler();
+                    I.AddHighscoreIfPossible(TimeManager.currentSecond+ TimeManager.prevSecond);
                     SceneManager.LoadScene("Closing");
                     break;
                 default:

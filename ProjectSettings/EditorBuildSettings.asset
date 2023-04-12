@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Closing.unity
     guid: 8b45d888c095043478eae57d397d0f16
   - enabled: 1
+    path: Assets/Scenes/Leaderboard.unity
+    guid: 5a36ac49339d4144f8bce86b742a6cec
+  - enabled: 1
     path: Assets/Scenes/Shopkeeper.unity
     guid: 1a41dba661309a04693c687bfc952b24
   - enabled: 0
