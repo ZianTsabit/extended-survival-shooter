@@ -80,7 +80,7 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
 
-        playerShooting.DisableEffects ();
+        //playerShooting.DisableEffects ();
         //playerShotgun.DisableEffects();
 
         //mentrigger animasi Die
@@ -92,10 +92,10 @@ public class PlayerHealth : MonoBehaviour
 
         //mematikan script player movement
         playerMovement.enabled = false;
-        
+
         // mematikan script player shooting
         //playerShooting.enabled = false;
-        playerShotgun.enabled = false;
+        //playerShotgun.enabled = false;
 
         GameOverScene.Setup();
     }
