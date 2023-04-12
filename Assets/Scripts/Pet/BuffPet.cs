@@ -1,72 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class HealerPet : MonoBehaviour
+public class BuffPet : MonoBehaviour
 {
     public float stoppingDistance = 4f;
     public float enemyAvoidanceDistance = 3f;
     private Transform player;
-    private float timeSinceLastHeal;
+    private NavMeshAgent navMeshAgent;
     public int currentHealth;
+    private WeaponHolder weaponHolder;
 
-    public AudioClip deathClip;
-    private AudioSource playerAudio;
-    private UnityEngine.AI.NavMeshAgent navMeshAgent;
+    // Bonus damage 
+    public int bonusDamage = 10;
 
     void Awake()
     {
         // Cari player
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        // Get the NavMeshAgent component
-        navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        // NavMeshAgent component
+        navMeshAgent = GetComponent<NavMeshAgent>();
 
-        // Initialize current health
+        // urrent health
         currentHealth = 150;
 
-        // Audio
-        playerAudio = GetComponent<AudioSource>();
+        // WeaponHolder
+        weaponHolder = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponHolder>();
     }
 
     void Update()
     {
-        // move towards player
-        if (currentHealth > 0 && Vector3.Distance(transform.position, player.position) > stoppingDistance)
+        if (currentHealth > 0)
         {
             navMeshAgent.SetDestination(player.position);
-        }
 
+            // Melihat Player
+            transform.LookAt(player.position);
+
+            // add bonus damage 
+            WeaponHolder.bonusDamage = bonusDamage;
+        }
+        
         // Menghindar
         AvoidEnemies();
     }
 
-    void FixedUpdate()
-    {
-        if (currentHealth > 0 && Time.time - timeSinceLastHeal > 3)
-        {
-            //  player health component
-            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-
-            playerAudio.Play();
-            // heal
-            playerHealth.currentHealth += 8;
-            playerHealth.currentHealth = Mathf.Clamp(playerHealth.currentHealth, 0, playerHealth.startingHealth);
-
-            // update health slider
-            playerHealth.healthSlider.value = playerHealth.currentHealth;
-
-            // reset the time since last heal
-            timeSinceLastHeal = Time.time;
-        }
-    }
 
     void AvoidEnemies()
     {
         // Get all enemies
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        // Cari closest enemy
+        // Cari enemy terdekat
         GameObject closestEnemy = null;
         float closestDistance = float.MaxValue;
         foreach (GameObject enemy in enemies)
@@ -79,7 +66,7 @@ public class HealerPet : MonoBehaviour
             }
         }
 
-        // Menjauhi musuh terdekat
+        // Mejauhi Musuh
         if (closestEnemy != null && closestDistance < enemyAvoidanceDistance)
         {
             Vector3 direction = transform.position - closestEnemy.transform.position;
@@ -113,6 +100,3 @@ public class HealerPet : MonoBehaviour
         }
     }
 }
-
-
-

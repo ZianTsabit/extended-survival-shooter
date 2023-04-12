@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - shopkeeper
+  - Projectile
+  - Pet
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - UI
   - Shootable
   - Arrows
-  - 
-  - 
+  - Pet
+  - Projectile
   - 
   - 
   - 
