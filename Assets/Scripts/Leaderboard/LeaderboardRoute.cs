@@ -14,4 +14,9 @@ public class LeaderboardRoute: MonoBehaviour
     {
         SceneManager.LoadScene("Leaderboard");
     }
+
+    public void GoToLoad()
+    {
+        SceneManager.LoadScene("Load");
+    }
 }

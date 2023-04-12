@@ -16,6 +16,7 @@ public class FileHandler {
 
     public static void SaveToJSON<T>(T toSave, string filename)
     {
+        Debug.Log(Getpath(filename));
         string content = JsonUtility.ToJson(toSave);
         WriteFile(Getpath(filename), content);
     }
