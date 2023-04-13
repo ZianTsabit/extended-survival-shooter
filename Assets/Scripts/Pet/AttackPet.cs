@@ -46,7 +46,7 @@ public class AttackPet : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (currentHealth > 0 && Time.time - timeSinceLastAttack > timeBetweenAttacks)
+        if (currentHealth > 0 && Time.time - timeSinceLastAttack > timeBetweenAttacks && !ShopScript.afterQuestShopping)
         {
             // Menyerang musuh terdekat
             GameObject closestEnemy = GetClosestEnemy();
