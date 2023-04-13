@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class BowController : MonoBehaviour
 {
     [SerializeField]
-    private Text firePowerText;
+    private Slider chargeBarSlider;
 
     [SerializeField]
     private PlayerBow bow;
@@ -36,6 +36,8 @@ public class BowController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         anim = player.GetComponent<Animator>();
+        chargeBarSlider.minValue = 0;
+        chargeBarSlider.maxValue = maxFirePower;
     }
 
     void Update()
@@ -54,17 +56,14 @@ public class BowController : MonoBehaviour
             firePower += Time.deltaTime * firePowerSpeed;
         }
 
+        chargeBarSlider.value = firePower;
+
         if (fire && Input.GetMouseButtonUp(0))
         {
             bow.Fire(firePower);
             firePower = 0;
             fire = false;
             anim.SetBool("isDrawing", false);
-        }
-
-        if (fire)
-        {
-            firePowerText.text = "FirePower: " + firePower.ToString();
         }
     }
 }
