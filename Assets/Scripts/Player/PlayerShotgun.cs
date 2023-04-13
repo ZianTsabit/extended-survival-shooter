@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class PlayerShotgun : MonoBehaviour
 {
-    // public int damagePerShot = Mathf.Lerp(30, 10, distance / maxDistance);
-    public static int damagePerShot = 20;
+    public static int damagePerShot = 10;
     public float timeBetweenBullets = 0.5f;
     public float range = 10f;
-    public int bulletSpread = 2;
+    public int bulletCount = 10;
+    public float spreadRadius = 0.2f;
+
     public static bool isEquipped = false;
 
     float timer;
@@ -17,7 +18,6 @@ public class PlayerShotgun : MonoBehaviour
     LineRenderer gunLine;
     AudioSource gunAudio;
     Light gunLight;
-    float effectsDisplayTime = 0.2f;
 
     void Awake()
     {
@@ -37,7 +37,7 @@ public class PlayerShotgun : MonoBehaviour
             Shoot();
         }
 
-        if (timer >= timeBetweenBullets * effectsDisplayTime)
+        if (timer >= timeBetweenBullets * 0.2f)
         {
             DisableEffects();
         }
@@ -61,32 +61,28 @@ public class PlayerShotgun : MonoBehaviour
         gunParticles.Play();
 
         gunLine.enabled = true;
-        gunLine.positionCount = 4 * bulletSpread - 2;
+        gunLine.positionCount = 2 * bulletCount;
 
-        for (int i = 0; i < gunLine.positionCount; i += 2)
+        for (int i = 0; i < bulletCount; i++)
         {
-            gunLine.SetPosition(i, transform.position);
+            Vector3 direction = transform.forward + Random.insideUnitSphere * spreadRadius;
+            direction.Normalize();
 
-            int factor = ((i / 2) % 2 == 0 ? -1 : 1) * (((i / 2) + 1) / 2);
-            float yRot = 15 * factor;
-            Quaternion q = Quaternion.AngleAxis(yRot, Vector3.up);
-            shootRay.origin = transform.position;
-            shootRay.direction = q * transform.forward;
+            Vector3 origin = transform.position;
+            gunLine.SetPosition(2 * i, origin);
 
-            if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
+            if (Physics.Raycast(origin, direction, out shootHit, range, shootableMask))
             {
                 EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
-
                 if (enemyHealth != null)
                 {
                     enemyHealth.TakeDamage(damagePerShot + WeaponHolder.bonusDamage, shootHit.point);
                 }
-
-                gunLine.SetPosition(i + 1, shootHit.point);
+                gunLine.SetPosition(2 * i + 1, shootHit.point);
             }
             else
             {
-                gunLine.SetPosition(i + 1, shootRay.origin + shootRay.direction * range);
+                gunLine.SetPosition(2 * i + 1, origin + direction * range);
             }
         }
     }
