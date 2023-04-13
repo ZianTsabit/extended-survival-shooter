@@ -50,7 +50,7 @@ public class QuestManager : MonoBehaviour
                     questList.text += "Kill Zombear\n";
                     break;
                 case 2:
-                    questList.text += "Kill Hellephant\n";
+                    questList.text += "Kill Hellgolem\n";
                     break;
                 default:
                     continue;

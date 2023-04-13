@@ -81,6 +81,16 @@ public class EnemyHealth : MonoBehaviour
         //Play Sound Dead
         enemyAudio.clip = deathClip;
         enemyAudio.Play();
+
+
+        if (enemyType == 2)
+        {
+            GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            GetComponent<Rigidbody>().isKinematic = true;
+            isSinking = true;
+            MoneyManager.money += scoreValue;
+            QuestManager.currKills[enemyType]++;
+        }
     }
 
     public void StartSinking()

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HellgolemAOC
+  m_Controller: {fileID: 9100000, guid: 9b0ffd6ed39e0d94d9a063794aad9835, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400004, guid: be66986effd141b4992d2d78be127139, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 0337ac8bb64f70f4ea13c261537ec107, type: 2}
+  - m_OriginalClip: {fileID: 7400002, guid: be66986effd141b4992d2d78be127139, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 56c860b25636a384dafe9ca4a5cfa5aa, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: be66986effd141b4992d2d78be127139, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 0086e3e72107f4642a1f552ed75c2e56, type: 2}
