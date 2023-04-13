@@ -21,6 +21,13 @@ public class Load1Script : MonoBehaviour
             TimeManager.prevSecond = savedItem.save_time;
             MoneyManager.prevMoney = savedItem.save_money;
             PlayerPrefs.SetString("PlayerName", savedItem.save_name);
+            ShopManager.isHavePet = savedItem.save_isHavePet;
+            ShopManager.isHaveAttacker = savedItem.save_isHaveAttacker;
+            ShopManager.isHaveBuffAura = savedItem.save_isHaveBuffAura;
+            ShopManager.isHaveHealer = savedItem.save_isHaveHealer;
+            PlayerBow.isEquipped = savedItem.save_bow;
+            PlayerShotgun.isEquipped = savedItem.save_shotgun;
+            PlayerMelee.isEquipped = savedItem.save_melee;
             SceneManager.LoadScene(savedItem.level_index);
         }
         else

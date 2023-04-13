@@ -25,7 +25,14 @@ public class Save2Script : MonoBehaviour
             levelIndex,
             PlayerPrefs.GetString("PlayerName"),
             TimeManager.prevSecond,
-            MoneyManager.prevMoney);
+            MoneyManager.prevMoney,
+            ShopManager.isHavePet,
+            ShopManager.isHaveAttacker,
+            ShopManager.isHaveBuffAura,
+            ShopManager.isHaveHealer,
+            PlayerBow.isEquipped,
+            PlayerShotgun.isEquipped,
+            PlayerMelee.isEquipped);
         FileHandler.SaveToJSON<saveItem>(toSave, filename);
         PlayerPrefs.SetString("Save2", date2.text);
     }
