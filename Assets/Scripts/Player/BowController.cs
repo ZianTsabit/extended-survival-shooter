@@ -28,14 +28,25 @@ public class BowController : MonoBehaviour
 
     private bool fire;
 
+    GameObject player;
+
+    Animator anim;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        anim = player.GetComponent<Animator>();
+    }
+
     void Update()
     {
         bow.transform.localScale = Vector3.one;
-        
+
 
         if (Input.GetMouseButtonDown(0))
         {
             fire = true;
+            anim.SetBool("isDrawing", true);
         }
 
         if (fire && firePower < maxFirePower)
@@ -48,6 +59,7 @@ public class BowController : MonoBehaviour
             bow.Fire(firePower);
             firePower = 0;
             fire = false;
+            anim.SetBool("isDrawing", false);
         }
 
         if (fire)

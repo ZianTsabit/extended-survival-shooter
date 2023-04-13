@@ -11,10 +11,14 @@ public class Arrow : MonoBehaviour
     [SerializeField]
     private Rigidbody rigid;
 
+    [SerializeField]
+    private TrailRenderer trail;
+
     private bool didHit;
 
     public void Fly(Vector3 force)
     {
+        trail.enabled = true;
         rigid.isKinematic = false;
         rigid.AddForce(force, ForceMode.Impulse);
         rigid.AddTorque(transform.right * torque);
