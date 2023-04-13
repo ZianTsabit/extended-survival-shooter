@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 6690147093299374625}
   - component: {fileID: 6690147093299374627}
   m_Layer: 8
-  m_Name: AttackSlime 1
+  m_Name: AttackSlime
   m_TagString: Pet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
