@@ -11,6 +11,7 @@ public class ShopScript : MonoBehaviour
     public GameObject shopkeeper;
     public GameObject shopUI;
     public GameObject ShopError;
+    public GameObject saveUI;
     Transform player;
     Transform shopkeeperTransform;
 
@@ -41,7 +42,7 @@ public class ShopScript : MonoBehaviour
                 shopUI.SetActive(true);
             }
             
-            if (shopUI.activeSelf == false){
+            if (shopUI.activeSelf == false && saveUI.activeSelf == false){
                 shoppingTime -= Time.deltaTime;
                 if (shoppingTime <= 0f){
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
