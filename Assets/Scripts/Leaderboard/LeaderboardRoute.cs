@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LeaderboardRoute: MonoBehaviour
 {
+    public GameObject saveUI;
     public void BackToMainMenu()
     {
         SceneManager.LoadScene(0);
@@ -18,5 +19,15 @@ public class LeaderboardRoute: MonoBehaviour
     public void GoToLoad()
     {
         SceneManager.LoadScene("Load");
+    }
+
+    public void GoToSave()
+    {
+        saveUI.SetActive(true);
+    }
+
+    public void ContinueGame()
+    {
+        saveUI.SetActive(false);
     }
 }

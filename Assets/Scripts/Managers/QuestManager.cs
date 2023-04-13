@@ -11,6 +11,7 @@ public class QuestManager : MonoBehaviour
     public static int[] currKills;
 
     public static int currentSceneIndex;
+    public Button saveButton;
 
     public Text questList;
 
@@ -80,12 +81,15 @@ public class QuestManager : MonoBehaviour
             {
                 case "Level_1":
                     MoneyManager.money += 50;
+                    saveButton.gameObject.SetActive(true);
                     break;
                 case "Level_2":
                     MoneyManager.money += 100;
+                    saveButton.gameObject.SetActive(true);
                     break;
                 case "Level_3":
                     MoneyManager.money += 150;
+                    saveButton.gameObject.SetActive(true);
                     break;
                 case "Level_4":
                     HighscoreHandler I = new HighscoreHandler();

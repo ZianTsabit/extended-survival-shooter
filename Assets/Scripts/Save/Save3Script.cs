@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Save3Script : MonoBehaviour
 {
@@ -18,7 +19,13 @@ public class Save3Script : MonoBehaviour
         DateTime dateCurrent = DateTime.Now;
         date3.text = dateCurrent.ToString();
 
-        saveItem toSave = new saveItem(5, "Cicak", 35.0, 180);
+        int levelIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        saveItem toSave = new saveItem(
+            levelIndex,
+            PlayerPrefs.GetString("PlayerName"),
+            TimeManager.prevSecond,
+            MoneyManager.prevMoney);
         FileHandler.SaveToJSON<saveItem>(toSave, filename);
         PlayerPrefs.SetString("Save3", date3.text);
     }

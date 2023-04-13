@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Save2Script : MonoBehaviour
 {
@@ -18,7 +19,13 @@ public class Save2Script : MonoBehaviour
         DateTime dateCurrent = DateTime.Now;
         date2.text = dateCurrent.ToString();
 
-        saveItem toSave = new saveItem(4, "Ayam", 23.0, 70);
+        int levelIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        saveItem toSave = new saveItem(
+            levelIndex,
+            PlayerPrefs.GetString("PlayerName"),
+            TimeManager.prevSecond,
+            MoneyManager.prevMoney);
         FileHandler.SaveToJSON<saveItem>(toSave, filename);
         PlayerPrefs.SetString("Save2", date2.text);
     }
