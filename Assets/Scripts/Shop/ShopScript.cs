@@ -36,10 +36,11 @@ public class ShopScript : MonoBehaviour
             
             shopkeeper.SetActive(true);
             
-            if (Mathf.Abs(player.position.x - shopkeeperTransform.position.x) < 1.5  && Mathf.Abs(player.position.y - shopkeeperTransform.position.y) < 1.5 && Input.GetKeyDown(KeyCode.B))
+            if (Mathf.Abs(player.position.x - shopkeeperTransform.position.x) < 1.0  && Mathf.Abs(player.position.y - shopkeeperTransform.position.y) < 1.0 && Input.GetKeyDown(KeyCode.B))
             {
-                //Debug.Log("B pressed!");
                 shopUI.SetActive(true);
+            } else if (Mathf.Abs(player.position.x - shopkeeperTransform.position.x) > 1.0  && Mathf.Abs(player.position.y - shopkeeperTransform.position.y) < 1.0 && Input.GetKeyDown(KeyCode.B)){
+                ShopError.SetActive(true);
             }
             
             if (shopUI.activeSelf == false && saveUI.activeSelf == false){
@@ -63,6 +64,47 @@ public class ShopScript : MonoBehaviour
                 ShopError.SetActive(false);
                 errorTime = 3f;
             }
+        }
+
+        // Cheat Code
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Debug.Log("Cheat Code Activated");
+            if (ShopManager.isHavePet == true && ShopManager.isHaveHealer == true)
+            {
+                ShopManager.isHavePet = false;
+                HealerPet.currentHealth = 0;
+            }
+            else if (ShopManager.isHavePet == true && ShopManager.isHaveAttacker == true)
+            {
+                ShopManager.isHavePet = false;
+                AttackPet.currentHealth = 0;
+            }
+            else if (ShopManager.isHavePet == true && ShopManager.isHaveBuffAura == true)
+            {
+                ShopManager.isHavePet = false;
+                BuffPet.currentHealth = 0;
+            }
+        } else if (Input.GetKeyDown(KeyCode.U)){
+            Debug.Log("Cheat Code Activated");
+            PlayerMovement.speed = 12f;
+        } else if (Input.GetKeyDown(KeyCode.F)){
+            Debug.Log("Cheat Code Activated");
+            if (ShopManager.isHavePet == true && ShopManager.isHaveHealer == true)
+            {
+                HealerPet.currentHealth = 150;
+            }
+            else if (ShopManager.isHavePet == true && ShopManager.isHaveAttacker == true)
+            {
+                AttackPet.currentHealth = 150;
+            }
+            else if (ShopManager.isHavePet == true && ShopManager.isHaveBuffAura == true)
+            {
+                BuffPet.currentHealth = 150;
+            }
+        } else if (Input.GetKeyDown(KeyCode.Alpha9)){
+            Debug.Log("Cheat Code Activated");
+            MoneyManager.money = 999999;
         }
     }
 

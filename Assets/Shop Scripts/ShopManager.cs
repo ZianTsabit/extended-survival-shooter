@@ -35,6 +35,12 @@ public class ShopManager : MonoBehaviour
         money = MoneyManager.money + MoneyManager.prevMoney;
         moneyUI.text = "Money : " + money.ToString();  
 
+        if(isHavePet == false){
+            shopItems[0].isPurchased = false;
+            shopItems[1].isPurchased = false;
+            shopItems[2].isPurchased = false;
+        }
+
         LoadPanels();
         CheckPurhaseable();
     }

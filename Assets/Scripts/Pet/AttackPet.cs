@@ -8,7 +8,7 @@ public class AttackPet : MonoBehaviour
     public float enemyAvoidanceDistance = 3f;
     public float projectileSpeed = 200f;
     public float timeBetweenAttacks = 3f;
-    public int currentHealth = 150;
+    public static int currentHealth = 150;
     public GameObject projectilePrefab;
 
     private GameObject[] enemies;
@@ -38,6 +38,8 @@ public class AttackPet : MonoBehaviour
             {
                 navMeshAgent.SetDestination(closestEnemy.transform.position);
             }
+        }else{
+            KillPet();
         }
 
         // Menghindar
@@ -90,6 +92,14 @@ public class AttackPet : MonoBehaviour
             ShopManager.isHavePet = false;
             ShopManager.isHaveAttacker = false;
         }
+    }
+
+    void KillPet()
+    {
+        // Destroy the pet
+        Destroy(gameObject, 2f);
+        ShopManager.isHavePet = false;
+        ShopManager.isHaveAttacker = false;
     }
 
     void OnCollisionEnter(Collision other)

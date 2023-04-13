@@ -80,7 +80,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: shopkeeper has not appeared !!!
+  m_Text: You can not shop now !!!
 --- !u!95 &3815290702585406793
 Animator:
   serializedVersion: 5

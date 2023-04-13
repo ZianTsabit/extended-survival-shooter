@@ -9,7 +9,7 @@ public class BuffPet : MonoBehaviour
     public float enemyAvoidanceDistance = 3f;
     private Transform player;
     private NavMeshAgent navMeshAgent;
-    public int currentHealth;
+    public static int currentHealth = 150;
     private WeaponHolder weaponHolder;
 
     // Bonus damage 
@@ -22,9 +22,6 @@ public class BuffPet : MonoBehaviour
 
         // NavMeshAgent component
         navMeshAgent = GetComponent<NavMeshAgent>();
-
-        // urrent health
-        currentHealth = 150;
 
         // WeaponHolder
         weaponHolder = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponHolder>();
@@ -41,6 +38,8 @@ public class BuffPet : MonoBehaviour
 
             // add bonus damage 
             WeaponHolder.bonusDamage = bonusDamage;
+        }else{
+            KillPet();
         }
         
         // Menghindar
@@ -91,6 +90,14 @@ public class BuffPet : MonoBehaviour
             ShopManager.isHavePet = false;
             ShopManager.isHaveBuffAura = false;
         }
+    }
+
+    void KillPet()
+    {
+        // Destroy the pet
+        Destroy(gameObject, 2f);
+        ShopManager.isHavePet = false;
+        ShopManager.isHaveBuffAura = false;
     }
 
     void OnCollisionEnter(Collision other)

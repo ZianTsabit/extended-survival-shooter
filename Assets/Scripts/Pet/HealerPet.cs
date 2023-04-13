@@ -8,7 +8,7 @@ public class HealerPet : MonoBehaviour
     public float enemyAvoidanceDistance = 3f;
     private Transform player;
     private float timeSinceLastHeal;
-    public int currentHealth;
+    public static int currentHealth = 150;
 
     public AudioClip deathClip;
     private AudioSource playerAudio;
@@ -22,9 +22,6 @@ public class HealerPet : MonoBehaviour
         // Get the NavMeshAgent component
         navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
-        // Initialize current health
-        currentHealth = 150;
-
         // Audio
         playerAudio = GetComponent<AudioSource>();
     }
@@ -35,6 +32,8 @@ public class HealerPet : MonoBehaviour
         if (currentHealth > 0 && Vector3.Distance(transform.position, player.position) > stoppingDistance)
         {
             navMeshAgent.SetDestination(player.position);
+        }else if (currentHealth <= 0){
+            KillPet();
         }
 
         // Menghindar
@@ -104,6 +103,14 @@ public class HealerPet : MonoBehaviour
             ShopManager.isHavePet = false;
             ShopManager.isHaveHealer = false;
         }
+    }
+
+    void KillPet()
+    {
+        // Destroy the pet
+        Destroy(gameObject, 2f);
+        ShopManager.isHavePet = false;
+        ShopManager.isHaveHealer = false;
     }
 
     void OnCollisionEnter(Collision other)
