@@ -52,6 +52,9 @@ public class AttackPet : MonoBehaviour
             GameObject closestEnemy = GetClosestEnemy();
             if (closestEnemy != null && Vector3.Distance(transform.position, closestEnemy.transform.position) > stoppingDistance && !PlayerHealth.isDead)
             {
+                // Melihat enemy
+                transform.LookAt(closestEnemy.transform.position);
+
                 navMeshAgent.SetDestination(closestEnemy.transform.position);
             }
         }else{
