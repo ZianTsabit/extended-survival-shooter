@@ -17,15 +17,6 @@ public class BowController : MonoBehaviour
 
     private float firePower;
 
-    [SerializeField]
-    private float rotateSpeed;
-
-    [SerializeField]
-    private float minRotation;
-
-    [SerializeField]
-    private float maxRotation;
-
     private bool fire;
 
     GameObject player;
@@ -45,7 +36,7 @@ public class BowController : MonoBehaviour
         bow.transform.localScale = Vector3.one;
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             fire = true;
             anim.SetBool("isDrawing", true);
@@ -58,7 +49,7 @@ public class BowController : MonoBehaviour
 
         chargeBarSlider.value = firePower;
 
-        if (fire && Input.GetMouseButtonUp(0))
+        if (fire && Input.GetMouseButtonUp(1))
         {
             bow.Fire(firePower);
             firePower = 0;

@@ -6,9 +6,6 @@ public class Arrow : MonoBehaviour
     private int damage;
 
     [SerializeField]
-    private float torque;
-
-    [SerializeField]
     private Rigidbody rigid;
 
     [SerializeField]
@@ -21,11 +18,10 @@ public class Arrow : MonoBehaviour
         trail.enabled = true;
         rigid.isKinematic = false;
         rigid.AddForce(force, ForceMode.Impulse);
-        rigid.AddTorque(transform.right * torque);
         transform.SetParent(null);
     }
 
-    void OnTriggerEnter(Collider collider)
+    void OnCollisionEnter(Collision collider)
     {
         if (didHit) return;
         didHit = true;
