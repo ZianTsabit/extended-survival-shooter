@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HealerPet : MonoBehaviour
 {
-    public float stoppingDistance = 3f;
-    public float enemyAvoidanceDistance = 4f;
+    public float stoppingDistance;
+    public float enemyAvoidanceDistance;
     private Transform player;
     private float timeSinceLastHeal;
     public static int currentHealth = 150;
@@ -31,6 +31,10 @@ public class HealerPet : MonoBehaviour
 
         //Animation
         animator = GetComponent<Animator>();
+
+        stoppingDistance = 3f;
+        enemyAvoidanceDistance = 4f;
+        navMeshAgent.speed = 2.5f;
     }
 
     void Update()
@@ -38,8 +42,13 @@ public class HealerPet : MonoBehaviour
         // move towards player
         if (currentHealth > 0 && Vector3.Distance(transform.position, player.position) > stoppingDistance)
         {
+            // Melihat Player
+            transform.LookAt(player.position);
+
+            // Berjalan ke Player
             navMeshAgent.SetDestination(player.position);
-        }else if (currentHealth <= 0){
+        }
+        else if (currentHealth <= 0){
             KillPet();
         }
 
@@ -52,17 +61,20 @@ public class HealerPet : MonoBehaviour
     {
         if (currentHealth > 0 && Time.time - timeSinceLastHeal > 10)
         {
-            //  player health component
+            //  Player health component
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+
+            // Play Audio
             healAudio.Play();
-            // heal
+
+            // Heal
             playerHealth.currentHealth += 8;
             playerHealth.currentHealth = Mathf.Clamp(playerHealth.currentHealth, 0, playerHealth.startingHealth);
 
-            // update health slider
+            // Update health slider
             playerHealth.healthSlider.value = playerHealth.currentHealth;
 
-            // reset the time since last heal
+            // Reset the time since last heal
             timeSinceLastHeal = Time.time;
         }
     }
@@ -104,10 +116,8 @@ public class HealerPet : MonoBehaviour
         {
             navMeshAgent.speed = 0;
 
-            // Death Animation
-
             // Destroy the pet
-            Destroy(gameObject, 2f);
+            //Destroy(gameObject, 2f);
             ShopManager.isHavePet = false;
             ShopManager.isHaveHealer = false;
         }
@@ -117,7 +127,7 @@ public class HealerPet : MonoBehaviour
     {
         // Destroy the pet
         animator.SetTrigger("Die");
-        Invoke("DestroyPet", 2f);
+        Invoke("DestroyPet", 4f);
         Destroy(gameObject, 2f);
         ShopManager.isHavePet = false;
         ShopManager.isHaveHealer = false;

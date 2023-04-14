@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class BuffPet : MonoBehaviour
 {
-    public float stoppingDistance = 3f;
-    public float enemyAvoidanceDistance = 4f;
+    public float stoppingDistance;
+    public float enemyAvoidanceDistance;
     private Transform player;
     private NavMeshAgent navMeshAgent;
     public static int currentHealth = 150;
@@ -35,27 +35,36 @@ public class BuffPet : MonoBehaviour
         hurtAudio = GetComponent<AudioSource>();
 
         animator = GetComponent<Animator>();
+
+        stoppingDistance = 3f;
+        enemyAvoidanceDistance = 4f;
     }
 
     void Update()
     {
-        if (currentHealth > 0)
+        // move towards player
+        if (currentHealth > 0 && Vector3.Distance(transform.position, player.position) > stoppingDistance)
         {
-            navMeshAgent.SetDestination(player.position);
-
             // Melihat Player
             transform.LookAt(player.position);
 
+            // Berjalan ke Player
+            navMeshAgent.SetDestination(player.position);
+
+
             // add bonus damage 
             WeaponHolder.bonusDamage = bonusDamage;
-        }else{
+        }
+        else if (currentHealth <= 0)
+        {
+            WeaponHolder.bonusDamage = 0;
             KillPet();
         }
-        
+
         // Menghindar
         AvoidEnemies();
-    }
 
+    }
 
     void AvoidEnemies()
     {
@@ -96,10 +105,8 @@ public class BuffPet : MonoBehaviour
         {
             navMeshAgent.speed = 0;
 
-            // Death Animation
-
             // Destroy the pet
-            Destroy(gameObject, 2f);
+            //Destroy(gameObject, 2f);
             ShopManager.isHavePet = false;
             ShopManager.isHaveBuffAura = false;
         }
@@ -109,7 +116,7 @@ public class BuffPet : MonoBehaviour
     {
         // Destroy the pet
         animator.SetTrigger("Die");
-        Invoke("DestroyPet", 2f);
+        Invoke("DestroyPet", 4f);
         Destroy(gameObject, 2f);
         ShopManager.isHavePet = false;
         ShopManager.isHaveBuffAura = false;

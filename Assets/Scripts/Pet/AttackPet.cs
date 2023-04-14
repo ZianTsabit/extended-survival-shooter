@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AttackPet : MonoBehaviour
 {
-    public float stoppingDistance = 3f;
-    public float enemyAvoidanceDistance = 4f;
+    public float stoppingDistance;
+    public float enemyAvoidanceDistance;
     public float projectileSpeed = 200f;
     public float timeBetweenAttacks = 3f;
     public static int currentHealth = 150;
@@ -36,6 +36,9 @@ public class AttackPet : MonoBehaviour
         hurtAudio = audioSources[1];
 
         animator = GetComponent<Animator>();
+
+        stoppingDistance = 7f;
+        enemyAvoidanceDistance = 4f;
     }
 
     void Update()
@@ -99,10 +102,8 @@ public class AttackPet : MonoBehaviour
         {
             navMeshAgent.speed = 0;
 
-            // Death Animation
-
             // Destroy the pet
-            Destroy(gameObject, 2f);
+            //Destroy(gameObject, 2f);
             ShopManager.isHavePet = false;
             ShopManager.isHaveAttacker = false;
         }
@@ -112,7 +113,7 @@ public class AttackPet : MonoBehaviour
     {
         // Destroy the pet
         animator.SetTrigger("Die");
-        Invoke("DestroyPet", 2f);
+        Invoke("DestroyPet", 4f);
         Destroy(gameObject, 2f);
         ShopManager.isHavePet = false;
         ShopManager.isHaveAttacker = false;
