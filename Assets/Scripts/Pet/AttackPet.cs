@@ -47,7 +47,7 @@ public class AttackPet : MonoBehaviour
         if (currentHealth > 0)
         {
             GameObject closestEnemy = GetClosestEnemy();
-            if (closestEnemy != null && Vector3.Distance(transform.position, closestEnemy.transform.position) > stoppingDistance)
+            if (closestEnemy != null && Vector3.Distance(transform.position, closestEnemy.transform.position) > stoppingDistance && !PlayerHealth.isDead)
             {
                 navMeshAgent.SetDestination(closestEnemy.transform.position);
             }
