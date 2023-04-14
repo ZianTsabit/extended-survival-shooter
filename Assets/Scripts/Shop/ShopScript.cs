@@ -14,8 +14,10 @@ public class ShopScript : MonoBehaviour
     public GameObject saveUI;
     Transform player;
     Transform shopkeeperTransform;
+    EnemyHealth enemyHealth;
     bool isSpeedCheat = false;
     bool isDamageCheat = false;
+    bool isOneHitCheat = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class ShopScript : MonoBehaviour
         afterQuestShopping = false;
         shopkeeperTransform = shopkeeper.GetComponent<Transform>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        enemyHealth = GetComponent<EnemyHealth>();
         shopkeeper.SetActive(false);
         shopUI.SetActive(false);
         ShopError.SetActive(false);
@@ -121,6 +124,17 @@ public class ShopScript : MonoBehaviour
             } else if (isDamageCheat == true){
                 EnemyAttack.attackDamage = 10;
                 isDamageCheat = false;
+            }
+        } else if (Input.GetKeyDown(KeyCode.H)){
+            Debug.Log("Cheat Code Activated");
+            if (isOneHitCheat == false){
+                Debug.Log("One Hit Cheat Activated");
+                WeaponHolder.bonusDamage = 200;
+                isOneHitCheat = true;
+            } else if (isOneHitCheat == true){
+                Debug.Log("One Hit Cheat Deactivated");
+                WeaponHolder.bonusDamage = 0;
+                isOneHitCheat = false;
             }
         }
     }
