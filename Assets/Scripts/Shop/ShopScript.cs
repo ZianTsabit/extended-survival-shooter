@@ -14,6 +14,8 @@ public class ShopScript : MonoBehaviour
     public GameObject saveUI;
     Transform player;
     Transform shopkeeperTransform;
+    bool isSpeedCheat = false;
+    bool isDamageCheat = false;
 
     // Start is called before the first frame update
     void Start()
@@ -87,7 +89,13 @@ public class ShopScript : MonoBehaviour
             }
         } else if (Input.GetKeyDown(KeyCode.U)){
             Debug.Log("Cheat Code Activated");
-            PlayerMovement.speed = 12f;
+            if(isSpeedCheat == false){
+                PlayerMovement.speed = 12f;
+                isSpeedCheat = true;
+            } else if (isSpeedCheat == true){
+                PlayerMovement.speed = 6f;
+                isSpeedCheat = false;
+            }
         } else if (Input.GetKeyDown(KeyCode.F)){
             Debug.Log("Cheat Code Activated");
             if (ShopManager.isHavePet == true && ShopManager.isHaveHealer == true)
@@ -104,7 +112,16 @@ public class ShopScript : MonoBehaviour
             }
         } else if (Input.GetKeyDown(KeyCode.Alpha9)){
             Debug.Log("Cheat Code Activated");
-            MoneyManager.money = 999999;
+            MoneyManager.money += 999999;
+        } else if (Input.GetKeyDown(KeyCode.N)){
+            Debug.Log("Cheat Code Activated");
+            if (isDamageCheat == false){
+                EnemyAttack.attackDamage = 0;
+                isDamageCheat = true;
+            } else if (isDamageCheat == true){
+                EnemyAttack.attackDamage = 10;
+                isDamageCheat = false;
+            }
         }
     }
 

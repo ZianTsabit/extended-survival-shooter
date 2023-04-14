@@ -128,7 +128,7 @@ public class HealerPet : MonoBehaviour
         // Take damage jika colliding
         if (other.gameObject.tag == "Enemy")
         {
-            TakeDamage(other.gameObject.GetComponent<EnemyAttack>().attackDamage);
+            TakeDamage(EnemyAttack.attackDamage);
         }
     }
 }
