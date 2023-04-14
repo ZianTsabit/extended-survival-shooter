@@ -34,7 +34,7 @@ public class HealerPet : MonoBehaviour
 
         stoppingDistance = 3f;
         enemyAvoidanceDistance = 4f;
-        navMeshAgent.speed = 2.5f;
+ 
     }
 
     void Update()
