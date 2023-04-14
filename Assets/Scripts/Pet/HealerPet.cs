@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class HealerPet : MonoBehaviour
 {
-    public float stoppingDistance = 4f;
-    public float enemyAvoidanceDistance = 3f;
+    public float stoppingDistance = 3f;
+    public float enemyAvoidanceDistance = 4f;
     private Transform player;
     private float timeSinceLastHeal;
     public static int currentHealth = 150;
 
-    public AudioClip deathClip;
-    private AudioSource playerAudio;
+    private AudioSource healAudio;
+    private AudioSource hurtAudio;
+    private Animator animator;
     private UnityEngine.AI.NavMeshAgent navMeshAgent;
 
     void Awake()
@@ -23,7 +24,13 @@ public class HealerPet : MonoBehaviour
         navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         // Audio
-        playerAudio = GetComponent<AudioSource>();
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+
+        healAudio = audioSources[0];
+        hurtAudio = audioSources[1];
+
+        //Animation
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -38,16 +45,16 @@ public class HealerPet : MonoBehaviour
 
         // Menghindar
         AvoidEnemies();
+
     }
 
     void FixedUpdate()
     {
-        if (currentHealth > 0 && Time.time - timeSinceLastHeal > 3)
+        if (currentHealth > 0 && Time.time - timeSinceLastHeal > 10)
         {
             //  player health component
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-
-            playerAudio.Play();
+            healAudio.Play();
             // heal
             playerHealth.currentHealth += 8;
             playerHealth.currentHealth = Mathf.Clamp(playerHealth.currentHealth, 0, playerHealth.startingHealth);
@@ -90,6 +97,7 @@ public class HealerPet : MonoBehaviour
     {
         // Mengurangi health jika terkena collision
         currentHealth -= damage;
+        hurtAudio.Play();
 
         // Mati
         if (currentHealth <= 0)
@@ -108,6 +116,8 @@ public class HealerPet : MonoBehaviour
     void KillPet()
     {
         // Destroy the pet
+        animator.SetTrigger("Die");
+        Invoke("DestroyPet", 2f);
         Destroy(gameObject, 2f);
         ShopManager.isHavePet = false;
         ShopManager.isHaveHealer = false;

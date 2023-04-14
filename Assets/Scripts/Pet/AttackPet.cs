@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AttackPet : MonoBehaviour
 {
-    public float stoppingDistance = 4f;
-    public float enemyAvoidanceDistance = 3f;
+    public float stoppingDistance = 3f;
+    public float enemyAvoidanceDistance = 4f;
     public float projectileSpeed = 200f;
     public float timeBetweenAttacks = 3f;
     public static int currentHealth = 150;
@@ -15,6 +15,11 @@ public class AttackPet : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent navMeshAgent;
     private float timeSinceLastAttack;
 
+    private AudioSource attackAudio;
+    private AudioSource hurtAudio;
+
+    private Animator animator;
+
     void Awake()
     {
 
@@ -23,6 +28,14 @@ public class AttackPet : MonoBehaviour
 
         // Get all enemies
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        // Audio
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+
+        attackAudio = audioSources[0];
+        hurtAudio = audioSources[1];
+
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -54,6 +67,7 @@ public class AttackPet : MonoBehaviour
             GameObject closestEnemy = GetClosestEnemy();
             if (closestEnemy != null)
             {
+                attackAudio.Play();
                 Attack(closestEnemy);
             }
 
@@ -79,7 +93,7 @@ public class AttackPet : MonoBehaviour
     {
         // Mengurangi health jika terkena collision
         currentHealth -= damage;
-
+        hurtAudio.Play();
         // Mati
         if (currentHealth <= 0)
         {
@@ -97,6 +111,8 @@ public class AttackPet : MonoBehaviour
     void KillPet()
     {
         // Destroy the pet
+        animator.SetTrigger("Die");
+        Invoke("DestroyPet", 2f);
         Destroy(gameObject, 2f);
         ShopManager.isHavePet = false;
         ShopManager.isHaveAttacker = false;

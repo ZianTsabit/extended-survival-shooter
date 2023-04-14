@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class BuffPet : MonoBehaviour
 {
-    public float stoppingDistance = 4f;
-    public float enemyAvoidanceDistance = 3f;
+    public float stoppingDistance = 3f;
+    public float enemyAvoidanceDistance = 4f;
     private Transform player;
     private NavMeshAgent navMeshAgent;
     public static int currentHealth = 150;
@@ -14,6 +14,11 @@ public class BuffPet : MonoBehaviour
 
     // Bonus damage 
     public int bonusDamage = 10;
+
+    //Audio
+    private AudioSource hurtAudio;
+
+    private Animator animator;
 
     void Awake()
     {
@@ -25,6 +30,11 @@ public class BuffPet : MonoBehaviour
 
         // WeaponHolder
         weaponHolder = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponHolder>();
+
+        // Audio
+        hurtAudio = GetComponent<AudioSource>();
+
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -78,6 +88,9 @@ public class BuffPet : MonoBehaviour
         // Mengurangi health jika terkena collision
         currentHealth -= damage;
 
+        // Audio
+        hurtAudio.Play();
+
         // Mati
         if (currentHealth <= 0)
         {
@@ -95,6 +108,8 @@ public class BuffPet : MonoBehaviour
     void KillPet()
     {
         // Destroy the pet
+        animator.SetTrigger("Die");
+        Invoke("DestroyPet", 2f);
         Destroy(gameObject, 2f);
         ShopManager.isHavePet = false;
         ShopManager.isHaveBuffAura = false;

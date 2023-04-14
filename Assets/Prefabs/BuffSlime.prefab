@@ -242,7 +242,7 @@ Animator:
   m_GameObject: {fileID: 3801502025446810565}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 56dd4edec19a3b04195448769c085dfc, type: 3}
-  m_Controller: {fileID: 9100000, guid: 1b58d63f942126347865fbdde70e67c5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5f41c07325e3d1743ac3b1a148e9c197, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -306,9 +306,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 170c978187daf28498d8f2cdbe1dc3cb, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: aa523d4b9a1977f47938edd6801e1fca, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -406,7 +406,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stoppingDistance: 2
   enemyAvoidanceDistance: 3
-  currentHealth: 0
   bonusDamage: 10
 --- !u!195 &3803046845896249975
 NavMeshAgent:
