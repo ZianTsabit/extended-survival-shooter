@@ -23,12 +23,15 @@ public class BowController : MonoBehaviour
 
     Animator anim;
 
+    AudioSource shootAudio;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         anim = player.GetComponent<Animator>();
         chargeBarSlider.minValue = 0;
         chargeBarSlider.maxValue = maxFirePower;
+        shootAudio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -51,6 +54,7 @@ public class BowController : MonoBehaviour
 
         if (fire && Input.GetMouseButtonUp(1))
         {
+            shootAudio.Play();
             bow.Fire(firePower);
             firePower = 0;
             fire = false;
