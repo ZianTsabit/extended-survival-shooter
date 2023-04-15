@@ -115,7 +115,7 @@ AudioSource:
   m_GameObject: {fileID: 3749287102852802589}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 5b84db49d40ea449aa4f3e3bd229ab5b, type: 2}
   m_audioClip: {fileID: 8300000, guid: 02e6208ec76314158a9f548f51fe9f11, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -249,7 +249,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.5
-  attackDamage: 10
 --- !u!114 &-243192228326627640
 MonoBehaviour:
   m_ObjectHideFlags: 0
