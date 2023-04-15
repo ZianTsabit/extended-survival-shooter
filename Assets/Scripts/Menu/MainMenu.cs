@@ -5,6 +5,10 @@ using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
+    //private void Start()
+    //{
+    //    PlayerPrefs.DeleteAll();
+    //}
     public void Newgame()
     {
         TimeManager.prevSecond = 0;
