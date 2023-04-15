@@ -1,15 +1,23 @@
 # IF3210-2023-Unity-ITB
 
 ## Deskripsi
-
+Extended Survival Shooter adalah sebuah game shooting action yang menawarkan pengalaman bertahan hidup yang seru dan menantang. Dengan fitur storyline yang mengikat dan penuh intrik, pemain akan membuka cerita-cerita baru seiring dengan kemajuan level yang dicapai. Mainmenu yang menarik dengan tampilan yang modern dan elegan, serta quest-quest yang beragam dan menantang akan memacu adrenalin para pemain untuk terus memainkan game ini. Tersedia berbagai jenis senjata dan aksesoris yang dapat diperoleh melalui pencapaian tertentu atau pembelian dengan koin dalam game. Selain itu, pemain juga dapat memelihara hewan peliharaan (pet) sebagai pendamping dalam permainan untuk membantu menghadapi musuh-musuh yang sulit.
 ## Requirements
 
 ### Unity
-
+- Unity 2021.3.21f1
 ### Library
+- TextMeshPro
+- UnityUI
+- Timeline
+- Math
+- AnimationRigging
 
 ## How to Run and Build ?
- 
+ _(diasumsikan akan dibuka menggunakan unity editor)_
+ 1. Buka Unity Editor
+ 2. Buka Folder `/scene`
+ 3. Klik tombol Play pada Display UI Unity Editor
 ## Screenshot
 
 ### Story Mode
