@@ -6,7 +6,7 @@ public class AttackPet : MonoBehaviour
 {
     public float stoppingDistance;
     public float enemyAvoidanceDistance;
-    public float projectileSpeed = 200f;
+    public float projectileSpeed;
     public float timeBetweenAttacks = 3f;
     public static int currentHealth = 150;
     public GameObject projectilePrefab;
@@ -37,8 +37,9 @@ public class AttackPet : MonoBehaviour
 
         animator = GetComponent<Animator>();
 
-        stoppingDistance = 7f;
-        enemyAvoidanceDistance = 4f;
+        stoppingDistance = 12f;
+        enemyAvoidanceDistance = 5f;
+        projectileSpeed = 20f;
     }
 
     void Update()
