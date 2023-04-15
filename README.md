@@ -12,8 +12,6 @@
  
 ## Screenshot
 
-## Screenshot
-
 ### Story Mode
 
 1. Opening Scene
