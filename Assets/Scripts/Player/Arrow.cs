@@ -21,19 +21,22 @@ public class Arrow : MonoBehaviour
         transform.SetParent(null);
     }
 
-    void OnCollisionEnter(Collision collider)
+    void OnCollisionEnter(Collision collision)
     {
-        if (didHit) return;
-        didHit = true;
-
-        if (collider.gameObject.CompareTag("Enemy"))
+        if(collision.gameObject.tag != "Player")
         {
-            collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage + WeaponHolder.bonusDamage, transform.position);
-        }
+            if (didHit) return;
+            didHit = true;
 
-        rigid.velocity = Vector3.zero;
-        rigid.angularVelocity = Vector3.zero;
-        rigid.isKinematic = true;
-        transform.SetParent(collider.transform);
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage + WeaponHolder.bonusDamage, transform.position);
+            }
+
+            rigid.velocity = Vector3.zero;
+            rigid.angularVelocity = Vector3.zero;
+            rigid.isKinematic = true;
+            transform.SetParent(collision.transform);
+        }
     }
 }
