@@ -72,12 +72,12 @@
 
 ### Fitur Cheat
 
-1. K : Kill Pet
-2. U : Speed x2
-3. F : Full Health Pet
-4. 9 : +999999 Money
-5. H : One Hit Kill
-6. N : Enemy No Damage
+1. Key K : Kill Pet
+2. Key U : Speed x2
+3. Key F : Full Health Pet
+4. Key 9 : +999999 Money
+5. Key H : One Hit Kill
+6. Key N : Enemy No Damage
 
 ## Contributors
 
