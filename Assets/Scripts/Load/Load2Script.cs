@@ -24,6 +24,7 @@ public class Load2Script : MonoBehaviour
         saveItem savedItem = FileHandler.ReadFromJSON<saveItem>(filename);
         if (savedItem != null)
         {
+            PlayerHealth.isDead = false;
             TimeManager.prevSecond = savedItem.save_time;
             MoneyManager.prevMoney = savedItem.save_money;
             PlayerPrefs.SetString("PlayerName", savedItem.save_name);

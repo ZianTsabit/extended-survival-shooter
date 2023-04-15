@@ -17,7 +17,7 @@ public class Load1Script : MonoBehaviour
         {
             button1.interactable = false;
         }
-            load1.text = PlayerPrefs.GetString("Save1");
+        load1.text = PlayerPrefs.GetString("Save1");
     }
 
     public void setLoad1()
@@ -25,6 +25,7 @@ public class Load1Script : MonoBehaviour
         saveItem savedItem = FileHandler.ReadFromJSON<saveItem>(filename);
         if (savedItem != null)
         {
+            PlayerHealth.isDead = false;
             TimeManager.prevSecond = savedItem.save_time;
             MoneyManager.prevMoney = savedItem.save_money;
             PlayerPrefs.SetString("PlayerName", savedItem.save_name);

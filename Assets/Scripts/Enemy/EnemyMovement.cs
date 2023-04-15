@@ -28,7 +28,7 @@ public class EnemyMovement : MonoBehaviour
         
         
         //Pindah ke player position
-        if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0 && !ShopScript.afterQuestShopping)
+        if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0 && !ShopScript.afterQuestShopping && !PlayerHealth.isDead)
         {
             if (pet != null)
             {

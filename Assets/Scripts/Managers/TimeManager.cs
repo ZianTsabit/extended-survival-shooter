@@ -12,6 +12,7 @@ public class TimeManager : MonoBehaviour
     void Awake ()
     {
         text = GetComponent <Text> ();
+        Debug.Log(prevSecond);
     }
 
 
