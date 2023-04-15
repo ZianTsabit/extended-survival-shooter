@@ -19,6 +19,9 @@ public class PlayerShotgun : MonoBehaviour
     AudioSource gunAudio;
     Light gunLight;
 
+    Animator anim;
+    GameObject player;
+
     void Awake()
     {
         shootableMask = LayerMask.GetMask("Shootable");
@@ -26,15 +29,23 @@ public class PlayerShotgun : MonoBehaviour
         gunLine = GetComponent<LineRenderer>();
         gunAudio = GetComponent<AudioSource>();
         gunLight = GetComponent<Light>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        anim = player.GetComponent<Animator>();
     }
 
     void Update()
     {
         timer += Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0 && !ShopScript.afterQuestShopping)
+        if (Input.GetButtonDown("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0 && !ShopScript.afterQuestShopping)
         {
-            Shoot();
+            anim.SetBool("isShooting", true);
+            Invoke("Shoot", 0.2f);
+        }
+
+        if (Input.GetButtonUp("Fire1"))
+        {
+            anim.SetBool("isShooting", false);
         }
 
         if (timer >= timeBetweenBullets * 0.2f)
